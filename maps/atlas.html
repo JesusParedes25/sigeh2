@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/logo_estrella.png">
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../fonts/icomoon/style.css">
+	<link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	
+	<link rel="stylesheet" href="../css/aos.css">
+	<link rel="stylesheet" href="../css/glightbox.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/flatpickr.min.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/tabby-ui.css">
+	
+	<script src="leaflet/leaflet.js"></script>
+	<link rel="stylesheet" href="L.Control.Basemaps.css" />
+
+	<script src="L.Control.Basemaps.js"></script>
+
+<link rel="stylesheet" href="leaflet/leaflet.css" />
+
+		<script src="Leaflet.CountrySelect.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<link rel="stylesheet" href="layercontrol/css/styledLayerControl.css" />
+	<script src="layercontrol/src/styledLayerControl.js"></script>
+
+	<title>SIGEH | Gobierno del Estado de Hidalgo</title>
+	<style>
+		html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+	
+
+}
+
+	</style>
+</head>
+<body>
+	<div class="container2">
+		<div class="head_map">
+			<img src="../images/logo_estrella.png" alt="Logo" class="logo">
+			<h1>Atlas interactivo del Estado de Hidalgo</h1>
+			<img src="../images/logo_estrella.png" alt="Logo" class="logo">
+		</div>
+		<div class="Mapa" id="map"></div>
+		<div class="leyenda">
+			<div class="iconos1">
+				<div class="logo-div"><img src="../images/logos/ambiente.png" alt="Logo 1" class="icono"><span class="icon-text">Medio Ambiente</span></div>
+				<div class="logo-div"><img src="../images/logos/finanzas.png" alt="Logo 2" class="icono"><span class="icon-text">Desarrollo Económico</span></div>
+				<div class="logo-div"><img src="../images/logos/vivienda.png" alt="Logo 3" class="icono"><span class="icon-text">Población y vivienda</span></div>
+				<div class="logo-div"><img src="../images/logos/educacion.png" alt="Logo 4" class="icono"><span class="icon-text">Educación y cultura</span></div>
+				<div class="logo-div"><img src="../images/logos/l-04.png" alt="Logo 5" class="icono"><span class="icon-text">Infraestructura</span></div>
+				<div class="logo-div"><img src="../images/logos/movilidad.png" alt="Logo 6" class="icono"><span class="icon-text">Movilidad y transporte</span></div>
+				<div class="logo-div"><img src="../images/logos/proteccion.png" alt="Logo 7" class="icono"><span class="icon-text">Protección civil</span></div>
+				<div class="logo-div"><img src="../images/logos/seguridad.png" alt="Logo 8" class="icono"><span class="icon-text">Seguridad</span></div>
+				<div class="logo-div"><img src="../images/logos/salud.png" alt="Logo 9" class="icono"><span class="icon-text">Salud</span></div>
+				<div class="logo-div"><img src="../images/logos/social.png" alt="Logo 10" class="icono"><span class="icon-text">Desarrollo social</span></div>
+				<div class="logo-div"><img src="../images/logos/cultura.png" alt="Logo 11" class="icono"><span class="icon-text">Turismo</span></div>
+				<div class="logo-div"><img src="../images/logos/gobierno.png" alt="Logo 12" class="icono"><span class="icon-text">Gobierno y transparencia</span></div>
+			</div>
+			<div class="leyenda1">
+				<div class="header-container">
+					<h3>Información General</h3>
+				</div>
+				
+				<div id="layer-control" class="header-container"></div>
+				<div id="map-legend"></div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	  <script src="capas/capas.js"></script>
+	  <script src="capas/iter_loc.js"></script>
+	  <script src="capas/capas_red_vial.js"></script>
+	
+	  <script src="atlas.js"></script>	
+</body>
+</html>
