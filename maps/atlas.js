@@ -89,13 +89,23 @@ var localidadesLayer = L.geoJSON(localidades, {
     }
 });
 
-var iterloc1 = L.geoJSON(iter_loc, {
+var estilo_loc = {
+    color: 'black', // Color de las líneas
+    weight: 1,     // Grosor de las líneas
+    fillColor: '#DDc9A3', // Color de relleno
+    fillOpacity: 0.7 // Opacidad del relleno
+};
+
+
+var iter_ageb = L.geoJSON(iter_ageb, {
+	style: estilo_loc,
     onEachFeature: function (feature, layer) {
         // Crea un contenido HTML para el popup
         var popupContent = '<div>';
         
         // Agrega el título que combina "NOM_LOC" y "NOM_MUN"
-        popupContent += '<h4>'+ feature.properties.NOMGEO + '</h4>';
+        popupContent += '<h5>Información por AGEB | Porcentaje</h5>';
+
         
         // Crea la tabla
         popupContent += '<table>';
@@ -112,9 +122,7 @@ var iterloc1 = L.geoJSON(iter_loc, {
             width: '600px' // Ajusta el valor de "width" según el tamaño que desees para el popup
         });
     }
-}).addTo(map);
-
-
+});
 
 
 
@@ -219,7 +227,8 @@ var overlays = [
 	  expanded: true,
 	  layers: {
 		"Municipios": geojsonLayer,
-		"Localidades": localidadesLayer
+		"Localidades (Punto)": localidadesLayer,
+		"Agebs": iter_ageb
 	  }
 	},
 	{

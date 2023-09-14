@@ -486,11 +486,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	
 	}
 .leaflet-popup-content-wrapper {
-	padding-right: 18px;
+	padding-right: 175px;
 	padding-top: 15px;
 	text-align: left;
 	border-radius: 12px;
-	width: auto; /* Cambia el ancho según tus necesidades */
+	width: 100%; /* Cambia el ancho según tus necesidades */
 	height: auto; /* Ajusta la altura automáticamente */
 	}
 .leaflet-popup-content {
