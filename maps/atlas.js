@@ -7,7 +7,7 @@
 
 	  var basemaps = [
 		L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-	maxZoom: 20,
+	maxZoom: 20,minZoom:8,
 	attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	,label:'Terreno'
 }),
@@ -39,61 +39,86 @@
 		   position: 'bottomleft'
 	  }).addTo(map);
 
-	  //CONTROL DE IMPRESIÓN
+	 
 	  
-	  //Capa Municipios
+//INFORMACIÓN GENERAL
+	  // Capa Municipios
 	  var geojsonLayer = L.geoJSON(municipios, {
-		  style: function(feature) {
-			  return {
-				  fillColor: '#9f2241',  // color del relleno
-				  fillOpacity: 0.8,  // transparencia del relleno (0-1)
-				  color: 'white',  // color de la línea
-				  weight: 1,  // grosor de la línea
-				  opacity: 1  // transparencia de la línea (0-1)
-			  };
-		  },
-/*		  onEachFeature: function(feature, layer) {
-			  feature.layer=layer;
-			  layer.on({
-				  mouseover: function(e) {
-					  var layer = e.target;
-					  layer.setStyle({
-						  fillColor: '#ddc9a3',  // color del relleno al hacer hover
-						  color: 'white',  // color de la línea al hacer hover
-					  });
-					  layer.bindPopup(feature.properties.NOMGEO).openPopup();
-				  },
-				  mouseout: function(e) {
-					  var layer = e.target;
-					  geojsonLayer.resetStyle(layer);  // restablecer el estilo original
-					  layer.closePopup();
-				  },
-				  click: function(e) {
-					  // Abrir el PDF en una nueva ventana o pestaña
-					  window.open(feature.properties.link);
-				  }
-			  });
-		  }*/
+		style: function(feature) {
+		  // Estilo del polígono
+		  return {
+			fillColor: '#9f2241',
+			fillOpacity: 0.8,
+			color: 'white',
+			weight: 1,
+			opacity: 1
+		  };
+		},/*
+		onEachFeature: function(feature, layer) {
+		  // Verifica que la propiedad que quieres mostrar existe
+		  if (feature.properties && feature.properties.NOMGEO) {
+			// Usa el centroide del polígono para posicionar la etiqueta
+			var center = layer.getBounds().getCenter();
+			// Crea un marcador con una etiqueta en el centroide
+			var label = L.marker(center, {
+			  icon: L.divIcon({
+				className: 'label', // Define esta clase en tu CSS si necesitas estilos personalizados
+				html: feature.properties.NOMGEO, // Asegúrate de que 'NOMGEO' es la propiedad correcta
+				iconSize: [50, 20] // Ajusta según necesidades
+			  })
+			});
+			label.addTo(map); // Asegúrate de que 'map' es la referencia a tu mapa de Leaflet
+		  }
+		}*/
 	  }).addTo(map);
 	  
+  
+	  
 	//Capa localidades
+// Crear el grupo de clusters
+var markersCluster = L.markerClusterGroup();
+
 // Crear la capa de puntos para las localidades
 var localidadesLayer = L.geoJSON(localidades, {
     pointToLayer: function (feature, latlng) {
         var properties = feature.properties;
+        var markerIcon = L.icon({
+            iconUrl: '../images/iconos/localidades.png',
+            iconSize: [25, 25]
+        });
+        var marker = L.marker(latlng, { icon: markerIcon });
 
-        var markerIcon = L.icon({ iconUrl: '../images/iconos/localidades.png', iconSize: [25, 25] });
+        // Crea el contenido del popup
+        var popupContent = '<div><h5>Información por Localidad | Porcentaje</h5><table>';
+        for (var key in properties) {
+            if (properties.hasOwnProperty(key)) {
+                popupContent += '<tr><td><b>' + key + ':</b></td><td>' + properties[key] + '</td></tr>';
+            }
+        }
+        popupContent += '</table></div>';
 
-        return L.marker(latlng, { icon: markerIcon })
-            .bindPopup("Municipio: " + properties.Municipio +"<br>Localidad: " + properties.Loc +  "<br>Población Total: " + properties.Pob_tot);
+        // Asigna el contenido al popup del marcador
+        marker.bindPopup(popupContent, {
+            maxWidth: 600
+        });
+
+        return marker;
     }
 });
+markersCluster.addLayer(localidadesLayer);
+
 
 var estilo_loc = {
     color: 'black', // Color de las líneas
-    weight: 1,     // Grosor de las líneas
+    weight: 0.5,     // Grosor de las líneas
     fillColor: '#DDc9A3', // Color de relleno
     fillOpacity: 0.7 // Opacidad del relleno
+};
+var estilo_loc_urb = {
+    color: 'black', // Color de las líneas
+    weight: 1,     // Grosor de las líneas
+    fillColor: '#235b4e', // Color de relleno
+    fillOpacity: 0.8 // Opacidad del relleno
 };
 
 
@@ -124,12 +149,39 @@ var iter_ageb = L.geoJSON(iter_ageb, {
     }
 });
 
+var loc_urb = L.geoJSON(loc_urbanas, {
+	style: estilo_loc_urb,
+    onEachFeature: function (feature, layer) {
+        // Crea un contenido HTML para el popup
+        var popupContent = '<div>';
+        
+        // Agrega el título que combina "NOM_LOC" y "NOM_MUN"
+        popupContent += '<h5>Información por localidad</h5>';
+
+        
+        // Crea la tabla
+        popupContent += '<table>';
+        for (var key in feature.properties) {
+            if (feature.properties.hasOwnProperty(key)) {
+                popupContent += '<tr><td><b>' + key + ':</b></td><td>' + feature.properties[key] + '</td></tr>';
+            }
+        }
+        popupContent += '</table>';
+        popupContent += '</div>';
+
+        // Asigna el contenido del popup al polígono
+        layer.bindPopup(popupContent, {
+            width: '600px' // Ajusta el valor de "width" según el tamaño que desees para el popup
+        });
+    }
+});
 
 
 
 
 
-//Capas redes viales
+
+//RED VIAL
 var federalLayer = L.geoJSON(federal, {
     style: function(feature) {
         return {
@@ -166,6 +218,50 @@ var municipalLayer = L.geoJSON(municipal, {
         layer.bindPopup('Nombre: ' + feature.properties.NOMBRE+'<br>Administración: '+ feature.properties.ADMINISTRA+'<br>Tipo de vialidad: '+ feature.properties.TIPO_VIAL); 
     }
 });
+
+//MEDIO NATURAL
+// Asumiendo que 'cuerpos_agua' es tu variable GeoJSON para los cuerpos de agua
+var cuerposAguaLayer = L.geoJSON(cuerpos_agua, {
+	style: function(feature) {
+	  // Aquí defines el estilo para tu capa de cuerpos de agua
+	  return {
+		color: '#92c5fc', // Color de la línea del borde del cuerpo de agua
+		fillColor: '#92c5fc', // Color de relleno del cuerpo de agua
+		fillOpacity: 0.7, // Opacidad del relleno
+		weight: 1 // Grosor de la línea del borde
+	  };
+	}
+  })
+
+var corrientesLayer = L.geoJSON(corrientes, {
+    style: function(feature) {
+        return {
+            color: '#92c5fc', // Color de las líneas
+            weight: 1.5 // Grosor de las líneas
+        };
+    },
+});
+var acuiferosLayer = L.geoJSON(acuiferos, {
+    style: function(feature) {
+        return {
+            color: 'black', // Color de las líneas
+            fillColor: '#1a66cc', // Color de relleno del cuerpo de agua
+            fillOpacity: 0.8, // Opacidad del relleno
+            weight: 0.5 // Grosor de las líneas
+        };
+    },
+    onEachFeature: function(feature, layer) {
+        // Verifica si la entidad tiene la propiedad que nos interesa
+        if (feature.properties && feature.properties.NOM_ACUI) {
+            // Crea el contenido del popup
+            var popupContent = "<p><b>Nombre del Acuífero:</b> " + feature.properties.NOM_ACUI + "</p>";
+
+            // Asigna el popup a la capa
+            layer.bindPopup(popupContent);
+        }
+    }
+})
+
 
 	  //Lista desplegable
 	  var select = L.countrySelect();
@@ -223,23 +319,34 @@ var municipalLayer = L.geoJSON(municipal, {
 // Define tus capas en el formato del plugin Leaflet.StyledLayerControl
 var overlays = [
 	{
-	  groupName: "Información general", // Puedes ajustar el nombre del grupo
-	  expanded: true,
+	  groupName: "Información general", 
+	  expanded: false,
 	  layers: {
 		"Municipios": geojsonLayer,
-		"Localidades (Punto)": localidadesLayer,
-		"Agebs": iter_ageb
+		"Localidades": markersCluster,
+		"Localidades urbanas": loc_urb,
+		"Agebs": iter_ageb,
+
 	  }
 	},
 	{
-	  groupName: "Red vial", // Puedes ajustar el nombre del grupo
-	  expanded: true,
+	  groupName: "Red vial",  
+	  expanded: false,
 	  layers: {
 		"Red vial Federal": federalLayer,
 		"Red vial Estatal": estatalLayer,
 		"Red vial Municipal": municipalLayer
 	  }
-	}
+	},
+	{
+		groupName: "Medio natural",  
+		expanded: false,
+		layers: {
+		  "Cuerpos de agua": cuerposAguaLayer,
+		  "Corrientes de agua": corrientesLayer,
+		  "Acuíferos": acuiferosLayer
+		}
+	  },
 ];
 
   // Crea el StyledLayerControl y añádelo al mapa

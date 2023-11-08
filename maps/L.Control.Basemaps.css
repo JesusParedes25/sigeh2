@@ -26,3 +26,14 @@
     border-radius: 40px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.65)
 }
+/* CSS para personalizar la etiqueta */
+.label {
+    background-color: white; /* fondo blanco */
+    border: 1px solid #222; /* borde negro delgado */
+    border-radius: 3px; /* bordes redondeados */
+    font-size: 10px; /* tamaño de letra más pequeño */
+    color: #333; /* color de letra oscuro */
+    text-align: center; /* texto centrado */
+    white-space: nowrap; /* evita que el texto se pase al siguiente renglón */
+    padding: 1px; /* algo de espacio dentro de la etiqueta */
+}
