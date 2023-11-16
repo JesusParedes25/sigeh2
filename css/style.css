@@ -11098,10 +11098,16 @@ textarea {
 .leyenda {
   grid-area: leyenda;
   display: grid;
-  grid-template-columns: 0.25fr 0.75fr;
-  grid-template-rows: 1fr;
-  
+  grid-template-columns: 1fr; /* Usamos 1fr para ocupar todo el espacio disponible para las columnas */
+  grid-template-rows: auto; /* auto hará que la fila se ajuste al contenido */
+  gap: 10px; /* Este es un espacio opcional entre los elementos de la cuadrícula */
+  padding: 10px; /* Opcional: Espacio interno para no tocar los bordes del área de la cuadrícula */
+  overflow: auto; /* En caso de que el contenido sea muy largo, permitirá el desplazamiento */
 }
+
+
+
+
 
 
 .iconos1 {
@@ -11185,7 +11191,7 @@ textarea {
   border: 1px solid #691c32;
   border-radius: 4px;
   width: 30px;
-  height: 30px;
+  height: auto;
   color: white;
   font-size: 16px;
   line-height: 30px;

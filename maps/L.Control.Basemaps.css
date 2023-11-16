@@ -28,12 +28,10 @@
 }
 /* CSS para personalizar la etiqueta */
 .label {
-    background-color: white; /* fondo blanco */
-    border: 1px solid #222; /* borde negro delgado */
-    border-radius: 3px; /* bordes redondeados */
-    font-size: 10px; /* tamaño de letra más pequeño */
-    color: #333; /* color de letra oscuro */
-    text-align: center; /* texto centrado */
-    white-space: nowrap; /* evita que el texto se pase al siguiente renglón */
-    padding: 1px; /* algo de espacio dentro de la etiqueta */
+    background-color: white; /* Fondo blanco */
+    padding: 3px; /* Un poco de espacio alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 3px #000; /* Sombra para mejorar la legibilidad */
+    text-align: center; /* Alineación del texto */
+    font-weight: bold; /* Texto en negrita */
 }

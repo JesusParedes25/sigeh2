@@ -38,6 +38,27 @@
 	  L.control.zoom({
 		   position: 'bottomleft'
 	  }).addTo(map);
+      
+//Estilos
+function estiloCoropleta(feature) {
+    return {
+        fillColor: getColor(feature.properties.Pob_ind_h), // Función para determinar el color
+        weight: 1,
+        opacity: 1,
+        color: 'black',
+        
+        fillOpacity: 1
+    };
+}
+
+function getColor(d) {
+    return d > 77.4 ? '#2c7fb8' :
+           d > 52   ? '#2c7fb8' :
+           d > 21.3 ? '#41b6c4' :
+           d > 6.7  ? '#a1dab4' :
+                      '#ffffcc';
+}
+
 
 	 
 	  
@@ -71,8 +92,8 @@
 		  }
 		}*/
 	  }).addTo(map);
-	  
-  
+
+      
 	  
 	//Capa localidades
 // Crear el grupo de clusters
@@ -244,10 +265,10 @@ var corrientesLayer = L.geoJSON(corrientes, {
 var acuiferosLayer = L.geoJSON(acuiferos, {
     style: function(feature) {
         return {
-            color: 'black', // Color de las líneas
+            color: 'white', // Color de las líneas
             fillColor: '#1a66cc', // Color de relleno del cuerpo de agua
             fillOpacity: 0.8, // Opacidad del relleno
-            weight: 0.5 // Grosor de las líneas
+            weight: 1 // Grosor de las líneas
         };
     },
     onEachFeature: function(feature, layer) {
@@ -261,6 +282,15 @@ var acuiferosLayer = L.geoJSON(acuiferos, {
         }
     }
 })
+
+//Población y vivienda
+var PobIndHog = L.geoJSON(pob_ind_hog, {
+    style: estiloCoropleta,
+    onEachFeature: function (feature, layer) {
+        // Si deseas agregar un popup
+        layer.bindPopup('Propiedad: ' + feature.properties.tuPropiedad);
+    },
+    })
 
 
 	  //Lista desplegable
@@ -310,7 +340,7 @@ var acuiferosLayer = L.geoJSON(acuiferos, {
 			  confirmButtonText: 'Entrar',
 			  confirmButtonColor: '#bc955c',   // color del botón
 			  background: 'linear-gradient(45deg,#691c32 , #9f2241',         // color de fondo del modal
-			  titleText: 'Bienvenido al Atlas interactivo del Estado de Hidalgo | Selecciona un sector de la columna izquierda para poder visualizar sus capas',            // color del texto del título
+			  titleText: 'Bienvenido al Atlas interactivo del Estado de Hidalgo | Selecciona una categoría de la columna izquierda para poder visualizar sus capas',            // color del texto del título
 		  })
 	  });
 	 
@@ -343,6 +373,15 @@ var overlays = [
 		expanded: false,
 		layers: {
 		  "Cuerpos de agua": cuerposAguaLayer,
+		  "Corrientes de agua": corrientesLayer,
+		  "Acuíferos": acuiferosLayer
+		}
+	  },
+      {
+		groupName: "Población y Vivienda",  
+		expanded: false,
+		layers: {
+		  "Población indígena en hogares": PobIndHog,
 		  "Corrientes de agua": corrientesLayer,
 		  "Acuíferos": acuiferosLayer
 		}
@@ -399,6 +438,42 @@ legendMunicipal.onAdd = function(map) {
     div.innerHTML = '<i style="background: url(../images/iconos/municipal.png) no-repeat center; background-size: contain;"></i> Red vial Municipal<br>';
     return div;
 };
+var legendPobInd = L.control({ position: 'bottomleft' });
+legendPobInd.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 6.7, 21.3, 52, 77.4], // Los puntos de inicio de cada rango
+        labels = [],
+        from, to;
+
+    // Estilo personalizado para la leyenda
+    div.style.padding = '6px 8px';
+    div.style.background = 'rgba(255,255,255,0.8)';
+    div.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+    div.style.borderRadius = '5px';
+    div.style.width = '180px'; // Ancho más grande para la leyenda
+
+    // Agregar título a la leyenda
+    div.innerHTML = '<h7>Población indígena en hogares (%)</h7><br>'; // Cambia "Título de la Leyenda" por tu título
+
+    // Itera a través de los intervalos de porcentajes y genera un label con un cuadrado de color para cada intervalo
+    for (var i = 0; i < grades.length; i++) {
+        from = grades[i];
+        to = grades[i + 1];
+
+        labels.push(
+            '<i style="background:' + getColor(from + 1) + '; width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7"></i> ' +
+            '<span style="line-height: 18px;">' + from + (to ? '&ndash;' + to : '+') + '</span>');
+    }
+
+    // Aquí concatenamos las etiquetas con el título en lugar de sobrescribirlo
+    div.innerHTML += labels.join('<br style="clear: both;">');
+    return div;
+};
+
+legendPobInd.addTo(map);
+
+
+
 
 // Función para actualizar la visibilidad de las leyendas
 function updateLegends() {
@@ -407,6 +482,7 @@ function updateLegends() {
     var federalVisible = map.hasLayer(federalLayer);
     var estatalVisible = map.hasLayer(estatalLayer);
     var municipalVisible = map.hasLayer(municipalLayer);
+    var PobIndHogVisible=map.hasLayer(PobIndHog);
 
     if (municipiosVisible) {
         legendMunicipios.addTo(map);
@@ -437,6 +513,12 @@ function updateLegends() {
     } else {
         map.removeControl(legendMunicipal);
     }
+    if (PobIndHogVisible) {
+        legendPobInd.addTo(map);
+    } else {
+        map.removeControl(legendPobInd);
+    }
+    
 }
 
 
