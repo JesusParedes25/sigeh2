@@ -11277,3 +11277,51 @@ textarea {
   margin-top: 20px; /* Ajusta el margen superior según tu diseño */
 }
 
+.collage-section {
+  padding: 20px;
+  text-align: center; /* Centra las imágenes */
+  background-color: #f8f9fa; /* Color de fondo opcional */
+}
+
+.collage-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px; /* Espacio reducido entre imágenes */
+}
+
+.collage-image {
+  width: 150px; /* Ancho inicial de las imágenes */
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el efecto zoom y sombra */
+  cursor: pointer; /* Cambia el cursor cuando pasas sobre la imagen */
+  border-radius: 5px; /* Bordes redondeados para un aspecto más suave */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra inicial suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el zoom y la sombra */
+}
+.image-wrapper {
+  position: relative; /* Posición relativa para posicionar el título */
+  display: inline-block; /* Alineación de los wrappers */
+  cursor: pointer; /* Cursor de selección en todo el contenedor */
+}
+
+.image-wrapper:hover .collage-image {
+  transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+}
+
+.image-title {
+  position: absolute; /* Posicionamiento absoluto respecto al contenedor */
+  bottom: 10px; /* Posición desde el fondo del contenedor */
+  left: 10px; /* Posición desde el lado izquierdo del contenedor */
+  color: white; /* Color del texto */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+  padding: 5px; /* Espaciado interno para el texto */
+  border-radius: 5px; /* Bordes redondeados para el fondo del texto */
+  opacity: 0; /* Inicialmente transparente */
+  transition: opacity 0.3s ease; /* Transición suave para la opacidad */
+  pointer-events: none; /* Evita que el cursor se cambie a texto */
+}
+
+.image-wrapper:hover .image-title {
+  opacity: 1; /* Hace el título visible en hover */
+}
