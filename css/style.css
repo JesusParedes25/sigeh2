@@ -11284,7 +11284,7 @@ textarea {
 
 .collage-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-gap: 5px; /* Controla el espacio entre las imágenes */
   max-width: 700px; /* O el ancho máximo que prefieras */
   margin: 0 auto; /* Centra el contenedor en la página */
@@ -11322,4 +11322,35 @@ textarea {
 
 .collage-item:hover .image-title {
   opacity: 1;
+}
+
+#map-selection {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.select-container {
+  margin-top: 20px;
+}
+
+.select-box {
+  margin-bottom: 10px;
+}
+
+.theme-select, .map-select, #viewMap {
+  padding: 10px;
+  margin-right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+#viewMap:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.pdf-viewer-container {
+  margin-top: 20px;
+  border: 1px solid #ccc; /* Un borde sutil alrededor del iframe */
+  border-radius: 8px; /* Bordes redondeados para el iframe */
 }
