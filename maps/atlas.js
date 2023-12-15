@@ -288,7 +288,7 @@ var PobIndHog = L.geoJSON(pob_ind_hog, {
     style: estiloCoropleta,
     onEachFeature: function (feature, layer) {
         // Si deseas agregar un popup
-        layer.bindPopup('Propiedad: ' + feature.properties.tuPropiedad);
+        layer.bindPopup('Propiedad: ' + feature.properties.NOM_MUN);
     },
     })
 
@@ -381,9 +381,7 @@ var overlays = [
 		groupName: "Población y Vivienda",  
 		expanded: false,
 		layers: {
-		  "Población indígena en hogares": PobIndHog,
-		  "Corrientes de agua": corrientesLayer,
-		  "Acuíferos": acuiferosLayer
+		  "Población indígena en hogares": PobIndHog
 		}
 	  },
 ];
