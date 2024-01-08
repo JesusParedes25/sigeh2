@@ -685,3 +685,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
     padding: 8px; /* Añade espacio entre el contenido y los bordes de las celdas */
     text-align: left; /* Alinea el texto a la izquierda en las celdas */
 }
+
+.my-title-class {
+	color: #9f2241 !important; /* Cambia #691c32 al color deseado para el título */
+  }
+  
+  .my-confirm-button-class:focus {
+	box-shadow: 0 0 0 3px #691c32 !important; /* Tu color personalizado */
+  }
+  
+  
+  .my-confirm-button-class {
+	background-color: #9f2241 !important; /* Cambia #691c32 al color deseado para el botón */
+	border-color: "white";
+  }
+  

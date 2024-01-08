@@ -110,7 +110,7 @@ var localidadesLayer = L.geoJSON(localidades, {
         var marker = L.marker(latlng, { icon: markerIcon });
 
         // Crea el contenido del popup
-        var popupContent = '<div><h5>Información por Localidad | Porcentaje</h5><table>';
+        var popupContent = '<div style="max-height: 400px; overflow-y: auto;"><h5 style="color: #691c32;"></h5><table style="width:100%;">';
         for (var key in properties) {
             if (properties.hasOwnProperty(key)) {
                 popupContent += '<tr><td><b>' + key + ':</b></td><td>' + properties[key] + '</td></tr>';
@@ -119,12 +119,35 @@ var localidadesLayer = L.geoJSON(localidades, {
         popupContent += '</table></div>';
 
         // Asigna el contenido al popup del marcador
-        marker.bindPopup(popupContent, {
-            maxWidth: 600
+        marker.on('click', function(e) {
+            var properties = feature.properties;
+            var popupContent = '<div style="max-height: 400px; overflow-y: auto;"><table style="width:100%;">';
+        
+            // Añade las filas de la tabla
+            for (var key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    popupContent += '<tr><td style="padding: 4px; border: 1px solid #691c32;"><strong>' + key + ':</strong></td>' +
+                                    '<td style="padding: 4px; border: 1px solid #691c32;">' + properties[key] + '</td></tr>';
+                }
+            }
+            popupContent += '</table></div>';
+        
+            // Ahora muestras el popupContent en SweetAlert2
+            Swal.fire({
+                title: 'Información por Localidad | Porcentaje',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                }
+            });
+            
         });
 
-        return marker;
-    }
+return marker;
+}
 });
 markersCluster.addLayer(localidadesLayer);
 
@@ -144,58 +167,72 @@ var estilo_loc_urb = {
 
 
 var iter_ageb = L.geoJSON(iter_ageb, {
-	style: estilo_loc,
+    style: estilo_loc,
     onEachFeature: function (feature, layer) {
-        // Crea un contenido HTML para el popup
-        var popupContent = '<div>';
-        
-        // Agrega el título que combina "NOM_LOC" y "NOM_MUN"
-        popupContent += '<h5>Información por AGEB | Porcentaje</h5>';
-
-        
-        // Crea la tabla
-        popupContent += '<table>';
-        for (var key in feature.properties) {
-            if (feature.properties.hasOwnProperty(key)) {
-                popupContent += '<tr><td><b>' + key + ':</b></td><td>' + feature.properties[key] + '</td></tr>';
+        layer.on('click', function () {
+            var properties = feature.properties;
+            var popupContent = '<div style="max-height: 400px; overflow-y: auto;">';
+            popupContent += '<table style="width: 100%; border-collapse: collapse;">';
+            
+            for (var key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    popupContent += '<tr>' +
+                                        '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff; width: 50%;"><strong>' + key + '</strong></td>' +
+                                        '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff; width: 50%;">' + properties[key] + '</td>' +
+                                    '</tr>';
+                }
             }
-        }
-        popupContent += '</table>';
-        popupContent += '</div>';
-
-        // Asigna el contenido del popup al polígono
-        layer.bindPopup(popupContent, {
-            width: '600px' // Ajusta el valor de "width" según el tamaño que desees para el popup
+            popupContent += '</table></div>';
+        
+            Swal.fire({
+                title: '<strong>Información por AGEB | Porcentaje</strong>',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
         });
+        
+        
     }
-});
+})
+
 
 var loc_urb = L.geoJSON(loc_urbanas, {
-	style: estilo_loc_urb,
+    style: estilo_loc_urb,
     onEachFeature: function (feature, layer) {
-        // Crea un contenido HTML para el popup
-        var popupContent = '<div>';
-        
-        // Agrega el título que combina "NOM_LOC" y "NOM_MUN"
-        popupContent += '<h5>Información por localidad</h5>';
+        // Añade el manejador de evento de clic al layer
+        layer.on('click', function () {
+            // Crea un contenido HTML para el modal
+            var popupContent = '<div><h5>Información por localidad</h5><table style="width: 100%; border-collapse: collapse;">';
 
-        
-        // Crea la tabla
-        popupContent += '<table>';
-        for (var key in feature.properties) {
-            if (feature.properties.hasOwnProperty(key)) {
-                popupContent += '<tr><td><b>' + key + ':</b></td><td>' + feature.properties[key] + '</td></tr>';
+            for (var key in feature.properties) {
+                if (feature.properties.hasOwnProperty(key)) {
+                    popupContent += '<tr>' +
+                                    '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff; width: 50%;"><strong>' + key + '</strong></td>' +
+                                    '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff; width: 50%;">' + feature.properties[key] + '</td>' +
+                                    '</tr>';
+                }
             }
-        }
-        popupContent += '</table>';
-        popupContent += '</div>';
+            popupContent += '</table></div>';
 
-        // Asigna el contenido del popup al polígono
-        layer.bindPopup(popupContent, {
-            width: '600px' // Ajusta el valor de "width" según el tamaño que desees para el popup
+            // Ahora muestra el popupContent en SweetAlert2
+            Swal.fire({
+                title: '<strong>Información por Localidad</strong>',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
         });
     }
-});
+})
 
 
 
@@ -211,10 +248,23 @@ var federalLayer = L.geoJSON(federal, {
         };
     },
     onEachFeature: function(feature, layer) {
-        // Agregar información emergente (popup) para cada línea
-		layer.bindPopup('Nombre: ' + feature.properties.NOMBRE+'<br>Administración: '+ feature.properties.ADMINISTRA+'<br>Tipo de vialidad: '+ feature.properties.TIPO_VIAL);
+        layer.on('click', function() {
+            Swal.fire({
+                title: '<strong>Información de la Red Vial Federal</strong>',
+                html: 'Nombre: ' + feature.properties.NOMBRE + 
+                      '<br>Administración: ' + feature.properties.ADMINISTRA + 
+                      '<br>Tipo de vialidad: ' + feature.properties.TIPO_VIAL,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
     }
 });
+
 var estatalLayer = L.geoJSON(estatal, {
     style: function(feature) {
         return {
@@ -223,10 +273,23 @@ var estatalLayer = L.geoJSON(estatal, {
         };
     },
     onEachFeature: function(feature, layer) {
-        // Agregar información emergente (popup) para cada línea
-		layer.bindPopup('Nombre: ' + feature.properties.NOMBRE+'<br>Administración: '+ feature.properties.ADMINISTRA+'<br>Tipo de vialidad: '+ feature.properties.TIPO_VIAL);
+        layer.on('click', function() {
+            Swal.fire({
+                title: '<strong>Información de la Red Vial Estatal</strong>',
+                html: 'Nombre: ' + feature.properties.NOMBRE + 
+                      '<br>Administración: ' + feature.properties.ADMINISTRA + 
+                      '<br>Tipo de vialidad: ' + feature.properties.TIPO_VIAL,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
     }
 });
+
 var municipalLayer = L.geoJSON(municipal, {
     style: function(feature) {
         return {
@@ -235,62 +298,136 @@ var municipalLayer = L.geoJSON(municipal, {
         };
     },
     onEachFeature: function(feature, layer) {
-        // Agregar información emergente (popup) para cada línea
-        layer.bindPopup('Nombre: ' + feature.properties.NOMBRE+'<br>Administración: '+ feature.properties.ADMINISTRA+'<br>Tipo de vialidad: '+ feature.properties.TIPO_VIAL); 
+        layer.on('click', function() {
+            Swal.fire({
+                title: '<strong>Información de la Red Vial Municipal</strong>',
+                html: 'Nombre: ' + feature.properties.NOMBRE + 
+                      '<br>Administración: ' + feature.properties.ADMINISTRA + 
+                      '<br>Tipo de vialidad: ' + feature.properties.TIPO_VIAL,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
     }
 });
+
 
 //MEDIO NATURAL
 // Asumiendo que 'cuerpos_agua' es tu variable GeoJSON para los cuerpos de agua
 var cuerposAguaLayer = L.geoJSON(cuerpos_agua, {
-	style: function(feature) {
-	  // Aquí defines el estilo para tu capa de cuerpos de agua
-	  return {
-		color: '#92c5fc', // Color de la línea del borde del cuerpo de agua
-		fillColor: '#92c5fc', // Color de relleno del cuerpo de agua
-		fillOpacity: 0.7, // Opacidad del relleno
-		weight: 1 // Grosor de la línea del borde
-	  };
-	}
-  })
-
-var corrientesLayer = L.geoJSON(corrientes, {
     style: function(feature) {
+        // Estilo definido anteriormente
         return {
-            color: '#92c5fc', // Color de las líneas
-            weight: 1.5 // Grosor de las líneas
-        };
-    },
-});
-var acuiferosLayer = L.geoJSON(acuiferos, {
-    style: function(feature) {
-        return {
-            color: 'white', // Color de las líneas
-            fillColor: '#1a66cc', // Color de relleno del cuerpo de agua
-            fillOpacity: 0.8, // Opacidad del relleno
-            weight: 1 // Grosor de las líneas
+            color: '#92c5fc',
+            fillColor: '#92c5fc',
+            fillOpacity: 0.7,
+            weight: 1
         };
     },
     onEachFeature: function(feature, layer) {
-        // Verifica si la entidad tiene la propiedad que nos interesa
-        if (feature.properties && feature.properties.NOM_ACUI) {
-            // Crea el contenido del popup
-            var popupContent = "<p><b>Nombre del Acuífero:</b> " + feature.properties.NOM_ACUI + "</p>";
+        layer.on('click', function() {
+            // Asumiendo que quieres mostrar algunas propiedades en el modal
+            var popupContent = '<h5>Información del Cuerpo de Agua</h5>';
+            popupContent += '...'; // Añade aquí la información que quieras mostrar
 
-            // Asigna el popup a la capa
-            layer.bindPopup(popupContent);
-        }
+            Swal.fire({
+                title: '<strong>Información del Cuerpo de Agua</strong>',
+                html: 'Nombre: ' + feature.properties.nombre,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
     }
-})
+});
 
-//Población y vivienda
+var corrientesLayer = L.geoJSON(corrientes, {
+    style: function(feature) {
+        // Estilo definido anteriormente
+        return {
+            color: '#92c5fc',
+            weight: 1.5
+        };
+    },
+    onEachFeature: function(feature, layer) {
+        layer.on('click', function() {
+            var popupContent = '<h5>Información de la Corriente de Agua</h5>';
+            popupContent += '...'; // Añade aquí la información que quieras mostrar
+
+            Swal.fire({
+                title: '<strong>Información de la Corriente de Agua</strong>',
+                html: 'Nombre: ' + feature.properties.nombre,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
+    }
+});
+
+var acuiferosLayer = L.geoJSON(acuiferos, {
+    style: function(feature) {
+        // Estilo definido anteriormente
+        return {
+            color: 'white',
+            fillColor: '#1a66cc',
+            fillOpacity: 0.8,
+            weight: 1
+        };
+    },
+    onEachFeature: function(feature, layer) {
+        layer.on('click', function() {
+            // Aquí se mantiene la lógica existente para mostrar el nombre del acuífero
+            var popupContent = "<h5>Información del Acuífero</h5>" +
+                               "<p><b>Nombre del Acuífero:</b> " + feature.properties.NOM_ACUI + "</p>";
+
+            Swal.fire({
+                title: '<strong>Información del Acuífero</strong>',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
+    }
+});
+
+// Población y vivienda
 var PobIndHog = L.geoJSON(pob_ind_hog, {
     style: estiloCoropleta,
     onEachFeature: function (feature, layer) {
-        // Si deseas agregar un popup
-        layer.bindPopup('Propiedad: ' + feature.properties.NOM_MUN);
-    },
-    })
+        layer.on('click', function() {
+            // Asumiendo que deseas mostrar información del municipio en el modal
+            var popupContent = '<h5>Información de Población Indígena en Hogares</h5>' +
+                               '<p><b>Municipio:</b> ' + feature.properties.NOM_MUN + '</p>' +
+                               '<p><b>Porcentaje de Población indígena:</b> ' + feature.properties.Pob_ind_h + '</p>';
+
+            // Ahora muestra el popupContent en SweetAlert2
+            Swal.fire({
+                title: '<strong>Información de Población Indígena en Hogares</strong>',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
+    }
+});
 
 
 	  //Lista desplegable
