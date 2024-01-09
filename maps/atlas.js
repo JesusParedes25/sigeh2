@@ -1,10 +1,7 @@
 		  
 	  var map = L.map('map', {zoomControl: false}).setView([20.5791, -98.9621,], 9);
-	  
-	  
-	  
-	  
 
+	  
 	  var basemaps = [
 		L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
 	maxZoom: 20,minZoom:8,
@@ -59,6 +56,7 @@ function getColor(d) {
                       '#ffffcc';
 }
 
+	  
 
 	 
 	  
@@ -531,9 +529,9 @@ var overlays = [
 
 document.querySelector('.leyenda1').appendChild(layersControl.getContainer());
 var capasTitle = document.createElement('div');
-capasTitle.innerHTML = '<strong>Capas</strong>';
-capasTitle.style.backgroundColor = '#691c32';
-capasTitle.style.color = 'white';
+capasTitle.innerHTML = '<strong>Capas geográficas</strong>';
+capasTitle.style.backgroundColor = '#F2F3F4 ';
+capasTitle.style.color = 'black';
 capasTitle.style.padding = '5px 10px';
 capasTitle.style.borderTopLeftRadius = '4px';
 capasTitle.style.borderTopRightRadius = '4px';
@@ -665,7 +663,5 @@ map.on('overlayadd overlayremove', function() {
     updateLegends();
 });
 
-
-
-
+L.control.browserPrint({position: 'topleft', title: 'Guardar en PDF'}).addTo(map);
 

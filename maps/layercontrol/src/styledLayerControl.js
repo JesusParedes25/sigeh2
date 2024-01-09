@@ -565,3 +565,4 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
 L.Control.styledLayerControl = function(baseLayers, overlays, options) {
     return new L.Control.StyledLayerControl(baseLayers, overlays, options);
 };
+

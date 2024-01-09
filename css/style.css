@@ -10890,12 +10890,12 @@ textarea {
 
 
               #map {
-     
                 min-width: 100%;
-                min-height: auto;
+                min-height: 100%; /* O una altura mínima específica, como 500px */
                 border: 1px solid #1f1412;
                 font-family: 'Montserrat', sans-serif;
               }
+              
           
              
 
