@@ -699,3 +699,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-color: "white";
   }
   
+/*Estilo de la leyenda de regiones*/
+.legend-item {
+    line-height: 18px; /* Altura de línea igual a la altura de los cuadrados de color */
+    margin-bottom: 2px; /* Espacio entre elementos de la leyenda */
+    white-space: nowrap; /* Evita que los elementos de la leyenda se escalonen */
+}
