@@ -1,4 +1,5 @@
 <?php
+	error_reporting(0);
 	include('conexion_21.php');
 	date_default_timezone_set('America/Mazatlan');
 
@@ -16,14 +17,14 @@
 
 	$sql = "INSERT INTO solicitudes (`id`, `dependencia`, `correo`, `estatus`, `producto`, `prioridad`, `descripcion`, `folio`, `fecha`, `hora`)
 			VALUES(' ','$dep', '$correo', '$producto',' ', '$prioridad', '$desc', '$folio', '$fecha', '$hora')";
-	echo $sql;
+	
 		
 	$resul = mysqli_query($conexion,$sql);
         $link = mysqli_fetch_array($resul);
 	
 
 	
-	if ($link->error) {
+	if ($link->connect_error) {
 		function function_alert_($message) {      
                     // Display the alert box 
                     echo "<script>alert('$message'); window.location.href = '../../index.php';</script>";
