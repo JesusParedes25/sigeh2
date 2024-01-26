@@ -1,141 +1,11 @@
-
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="images/logo_estrella.png">
-
-	<meta name="description" content="" />
-	<meta name="keywords" content="bootstrap, bootstrap5" />
-
-	
-	
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-
-
-	
-	<link rel="stylesheet" href="fonts/icomoon/style.css">
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-	<link rel="stylesheet" href="css/tiny-slider.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/glightbox.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
-	<link rel="stylesheet" href="css/flatpickr.min.css">
-
-
-	<title>SIGEH | Gobierno del Estado de Hidalgo</title>
-</head>
-<body>
-
-	<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-		  <div class="site-mobile-menu-close">
-			<span class="icofont-close js-menu-toggle"></span>
-		  </div>
-		  <img src="images/logo_menu2.png" alt="Descripción de la imagen" class="mobile-menu-image">
-		</div>
-		<div class="site-mobile-menu-body"></div>
-	  </div>
-	  
-	<nav class="site-nav nav-top" >
-		<div class="container" >
-			<div class="menu-bg-wrap" >
-				<div class="site-navigation">
-					<div class="row g-0 align-items-center">
-						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start">
-								<img src="images/logo_gobhidalgo.png" alt="Logo SIGEH" style="padding-bottom: 10px;">
-							  </a>							  
-						</div>
-					<!-- Este menú se muestra en pantallas de 600px o más -->
-<div class="col-8 text-right d-none d-sm-block">
-	<ul class="menu-derecha">
-	  <li><a href="https://ruts.hidalgo.gob.mx/">Trámites y Servicios</a></li>
-	  <li><a href="https://gobierno.hidalgo.gob.mx/">Gobierno</a></li>
-	  <li><a href="https://www.hidalgo.gob.mx/#buzon">Buzón Ciudadano</a></li>
-	  <li><a href="https://gobierno.hidalgo.gob.mx/AvisoPrivacidad">Aviso de privacidad</a></li>
-	</ul>
-  </div>
-  
-  <!-- Este menú se muestra en pantallas de menos de 600px -->
-  						  
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
-	<nav class="site-nav nav-bottom" >
-		<div class="container">
-			<div class="menu-bg-wrap">
-				<div class="site-navigation">
-					<div class="row g-0 align-items-center">
-						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start">SIGEH<span class="text-primary"></span></a>
-						</div>
-						<div class="col-8 text-center">
-							<!-- <form action="#" class="search-form d-inline-block d-lg-none">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="bi-search"></span>
-							</form>-->
-
-							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-								<li class="active"><a href="index.html" class="subrayado">Inicio</a></li>
-								<li><a href="h_productos.html#solicitud" class="subrayado">Solicitud de Productos</a></li>
-								<li class="has-children">
-									<a href="h_mapas.html" class="subrayado">Mapas</a>
-									<ul class="dropdown">
-										<li>
-											<a href="h_mapas.html" class="subrayado2">Hidalgo en Mapas</a>
-										</li>
-										<li ><a href="search-result.html" style="color: orange; cursor:default;" class="subrayado2">Atlas interactivo del estado de Hidalgo</a></li>
-									</ul>
-								</li>
-								<li class="has-children">
-									<a class="subrayado">Estadísticas</a>
-									<ul class="dropdown">
-										<li><a href="h_desempeño.html" class="subrayado2">Desempeño de Gobierno</a></li>
-										<ul class="dropdown"></ul>
-										<li class="has-children">				
-											<a href="h_numeros.html" class="subrayado2">Hidalgo en Números</a>
-											<ul class="dropdown">
-												<li><a href="h_tableros.html">Tableros dinámicos</a></li>
-												<li><a href="maps/infografias.html">Infografías municipales</a></li>
-												<li><a href="pags/bui.html">Banco único de Información Estadística</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li><a href="h_normatividad.html" class="subrayado">Marco Normativo</a></li>
-								
-						</div>
-						<div class="col-2 text-end">
-							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-								<span></span>
-							</a>
-							<!--<form action="#" class="search-form d-none d-lg-inline-block">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="bi-search"></span>
-							</form>-->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
+<?php
+include 'header.php';
+?>
 
 
 <!-- BANNER -->
 <!--<div class="banner"></div>-->
-<div class="site-cover2 site-cover2-sm same-height overlay single-page" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/cel_map2.jpg') no-repeat center; background-size: cover; cursor: default;">
+<div class="site-cover2 site-cover2-sm same-height overlay single-page" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/cel_map2.jpg') no-repeat center; background-size: cover; cursor: default;">
 	<div class="container">
 	  <div class="row same-height justify-content-center">
 		<div class="col-md-6">
@@ -157,30 +27,35 @@
 				<div class="accordion-item">
 				  <h2 class="accordion-header" id="headingOne">
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						<img src="images/logos/turismo.png" alt="Icono" class="icono-imagen">
+						<img src="../images/logos/turismo.png" alt="Icono" class="icono-imagen">
 						Recreación, Gastronomía y Turismo
 					  </button>											
 				  </h2>
 				  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 						<div class="list-group">
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=9169076773c44c22a52bd19a5a3dbde8" class="list-group-item list-group-item-action">Rutas ciclismo de montaña y ciclovías</a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=e5f38cc150d94d288d219c840401f60d" class="list-group-item list-group-item-action">Senderos y rutas de trekking más populares </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=5810753c33c246959c5d1bac05a31d78" class="list-group-item list-group-item-action">Zonas de camping y áreas de picnic </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=f02ce98c59b845a2b132b40312cc1e9a" class="list-group-item list-group-item-action">Lugares de entretenimiento para niños </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=8bf65e5eef9942988f3878934cd1d75f" class="list-group-item list-group-item-action">Plazas comerciales </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=73233edba95843e08b3e70b473ac2f03" class="list-group-item list-group-item-action">Artesanías </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=761d3512226142d19980a959cc2bd201" class="list-group-item list-group-item-action">Tianguis </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=1596d3a531a7489788ff7f3c23eff4bb" class="list-group-item list-group-item-action">Mercados</a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=794181ce96c84b4d89fe6afade7fe724" class="list-group-item list-group-item-action">Cabañas y haciendas </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=8a4dda3e539c46aba138bbd0b2c9a975" class="list-group-item list-group-item-action">Kioscos de orientación turística </a>
-							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=5cdf520eb5df4c06af6f362c92d0fc5d" class="list-group-item list-group-item-action">Templos y centros religiosos</a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=9169076773c44c22a52bd19a5a3dbde8" target=”_blank” class="list-group-item list-group-item-action">Rutas ciclismo de montaña y ciclovías</a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=e5f38cc150d94d288d219c840401f60d" target=”_blank” class="list-group-item list-group-item-action">Senderos y rutas de trekking más populares </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=5810753c33c246959c5d1bac05a31d78" target=”_blank” class="list-group-item list-group-item-action">Zonas de camping y áreas de picnic </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=f02ce98c59b845a2b132b40312cc1e9a" target=”_blank” class="list-group-item list-group-item-action">Lugares de entretenimiento para niños </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=8bf65e5eef9942988f3878934cd1d75f" target=”_blank” class="list-group-item list-group-item-action">Plazas comerciales </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=73233edba95843e08b3e70b473ac2f03" target=”_blank” class="list-group-item list-group-item-action">Artesanías </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=761d3512226142d19980a959cc2bd201" target=”_blank” class="list-group-item list-group-item-action">Tianguis </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=1596d3a531a7489788ff7f3c23eff4bb" target=”_blank” class="list-group-item list-group-item-action">Mercados</a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=794181ce96c84b4d89fe6afade7fe724" target=”_blank” class="list-group-item list-group-item-action">Cabañas y haciendas </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=8a4dda3e539c46aba138bbd0b2c9a975" target=”_blank” class="list-group-item list-group-item-action">Kioscos de orientación turística </a>
+							<a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=5cdf520eb5df4c06af6f362c92d0fc5d" target=”_blank” class="list-group-item list-group-item-action">Templos y centros religiosos</a>
+
 						</div>
+						
+
+							
+							
 				  </div>
 				</div>
 				<div class="accordion-item">
 				  <h2 class="accordion-header" id="headingTwo">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						<img src="images/logos/cultura.png" alt="Icono" class="icono-imagen">
+						<img src="../images/logos/cultura.png" alt="Icono" class="icono-imagen">
 					  Cultura y Educación
 					</button>
 				  </h2>
@@ -201,7 +76,7 @@
 				<div class="accordion-item">
 				  <h2 class="accordion-header" id="headingThree">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						<img src="images/logos/gobierno.png" alt="Icono" class="icono-imagen"> Gobierno, Desarrollo Social y Seguridad
+						<img src="../images/logos/gobierno.png" alt="Icono" class="icono-imagen"> Gobierno, Desarrollo Social y Seguridad
 					</button>
 				</h2>
 				<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -219,7 +94,7 @@
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="headingFour">
 					  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-						<img src="images/logos/ambiente.png" alt="Icono" class="icono-imagen">
+						<img src="../images/logos/ambiente.png" alt="Icono" class="icono-imagen">
 						Medio Ambiente
 					  </button>
 					</h2>
@@ -237,7 +112,7 @@
 				  <div class="accordion-item">
 					<h2 class="accordion-header" id="headingFive">
 					  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-						<img src="images/logos/movilidad.png" alt="Icono" class="icono-imagen">
+						<img src="../images/logos/movilidad.png" alt="Icono" class="icono-imagen">
 						Movilidad y Conectividad
 					  </button>
 					</h2>
@@ -259,7 +134,7 @@
 				  <div class="accordion-item">
 					<h2 class="accordion-header" id="headingSix">
 					  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-						<img src="images/logos/deporte.png" alt="Icono" class="icono-imagen">
+						<img src="../images/logos/deporte.png" alt="Icono" class="icono-imagen">
 						Salud y Deporte
 					  </button>
 					</h2>
@@ -276,70 +151,42 @@
 				  </div>
 				  
 			  </div>
+			  <!-- Modal -->
+			  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									...
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Understood</button>
+								</div>
+								</div>
+							</div>
+							</div>
+
+							<!-- Modal -->
 			  <hr class="red small-margin">
 	<div class="col-lg-3">
-<a href="index.html" class="read-more">Volver</a>
+<a href="/" class="read-more">Volver</a>
 </div>
 	  </div>
 	</section>
 	
 	
+<!--footer inicio brian--> 
+<?php
+include 'footer.php';
+?>
+	 <!-- /.site-footer -->
 
-	<footer class="site-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="widget">
-						<img src="images/logo_gobhidalgo.png">
-					</div> <!-- /.widget -->
-					<div class="widget" style="text-align: center;">
-						<h3 >Social</h3>
-						<ul class="list-unstyled social">
-							<li><a href="https://www.facebook.com/profile.php?id=100069229599131"><span class="icon-facebook"></span></a></li>
-							<li><a href="https://twitter.com/gobiernohidalgo?s=20"><span class="icon-twitter"></span></a></li>
-						</ul>
-					</div> <!-- /.widget -->
-				</div> <!-- /.col-lg-4 -->
-				<div class="col-lg-4 ps-lg-5">
-					<div class="widget">
-						<img src="images/escudo_blanco.svg">
-						<p style="text-align: center;">© 2023 Gobierno del Estado de Hidalgo</p>
-					</div> <!-- /.widget -->
-				</div> <!-- /.col-lg-4 -->
-				<div class="col-lg-4" style="text-align: center; font-weight: normal;">
-					<div class="widget">
-						<h2 class="mb-4">Contacto</h2>
-						<h3 style="font-weight: normal;">CITNOVA | EDIFICIO INNOVACIÓN <br><br>
-						<h3 style="font-weight: normal;">Boulevard Circuito La Concepción #3 <br>
-							Colonia La Concepción, CP 42162,<br>
-							San Agustín Tlaxiaca, Hidalgo</h3>
-					</div> <!-- /.widget -->
-				</div> <!-- /.col-lg-4 -->
-			</div> <!-- /.row -->
-      </div> <!-- /.container -->
-    </footer> <!-- /.site-footer -->
+    
 
-    <!-- Preloader -->
-    <div id="overlayer"></div>
-    <div class="loader">
-    	<div class="spinner-border text-primary" role="status">
-    		<span class="visually-hidden">Loading...</span>
-    	</div>
-    </div>
-
-
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-
-    <script src="js/flatpickr.min.js"></script>
-
-    <script src="js/aos.js"></script>
-    <script src="js/glightbox.min.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
 
     <script>
 		$(document).ready(function() {
