@@ -1,0 +1,216 @@
+<?php
+	require('../fpdf.php');
+	require 'conexion.php';
+	require 'mc_table.php';
+
+	class PDF extends FPDF
+	{
+		function Header()
+		{
+			$this->Image('solicitudes.png',15,10,185);
+		    // Line break
+		    $this->Ln(30);
+		}
+
+		// Inicia la definición del formato para el texto del documento.
+		function medida($texto)
+		{
+			// Agregamos la fuente que vamos a ocupar.
+			$this->AddFont('Graphik-Bold','','graphikBold.php');
+			$this->SetTextColor(4,47,65);
+			$this->SetFont('Graphik-Bold','',12);
+
+			return($texto);
+		}
+
+		function bullet($texto)
+		{
+			// Agregamos la fuente que vamos a ocupar.
+			$this->AddFont('Graphik-Bold','','graphikBold.php');
+			$this->SetTextColor(145,152,155);
+			$this->SetFont('Graphik-Bold','',12);
+
+			return($texto);
+		}
+
+		function titulo($texto)
+		{
+			// Agregamos la fuente que vamos a ocupar.
+			$this->AddFont('Graphik-Bold','','graphikBold.php');
+			$this->SetTextColor(255,255,255);
+			$this->SetFillColor(98,17,50);
+			$this->SetFont('Graphik-Bold','',12);
+
+			return(utf8_decode($texto));
+		}
+
+		function subtitulo($texto)
+		{
+			// Agregamos la fuente que vamos a ocupar.
+			$this->AddFont('Graphik-Bold','','graphikBold.php');
+			$this->SetTextColor(0,0,0);
+			
+			$this->SetFont('Graphik-Bold','',12);
+			
+			return(utf8_decode($texto));
+		}
+
+		function sub($texto)
+		{
+			// Agregamos la fuente que vamos a ocupar.
+			$this->AddFont('Graphik-Bold','','graphikBold.php');
+			$this->SetTextColor(255,255,255);
+			$this->SetFillColor(188,149,92);
+			$this->SetFont('Graphik-Bold','',12);
+			
+			return(utf8_decode($texto));
+		}
+
+
+		function contenido($texto)
+		{
+			// Agregamos la fuente que vamos a ocupar.
+			$this->AddFont('Graphik-Regular','','graphikRegular.php');
+			$this->SetTextColor(0,0,0);
+			$this->SetFont('Graphik-Regular','',10);
+
+			return(utf8_decode($texto));
+		}
+		// Termina la definición del formato para el texto del documento.
+	}
+
+	$id_solicitud = $_GET["id"];
+	//echo $id_solicitud;
+	
+	// "INICIO DEL DOCUMENTO"
+	$pdf = new PDF();
+
+	$query = "SELECT * FROM `solicitudes24` WHERE `id` = '$id_solicitud'";
+
+    	$result = $mysqli->query($query);
+
+	// Se inserta una nueva página en blanco.
+	$pdf->AddPage('P','Letter','0');
+
+	// Propiedades para la graficación del documento.
+	
+	$pdf->SetDrawColor(4,47,95);
+	$pdf->SetLineWidth(0.7);
+
+	while($imp = $result->fetch_assoc())
+	{
+		// Datos del documento (1 x hoja).
+		/*if ($imp['semaforo'] == 'Im'){
+			$pdf->SetFillColor(14,173,1);
+			$bullet = $pdf->medida('IM');
+			$pdf->MultiCell(10,5,$bullet,0,'C',true);
+		}
+		else{
+			$pdf->SetFillColor(250,247,65);
+			$bullet = $pdf->medida('SM');
+			$pdf->MultiCell(10,5,$bullet,0,'C',true);
+		}
+		$pdf->SetFillColor(4,47,65);
+		*/
+		
+		
+	/*	$medida = $pdf->medida($imp['medida']);
+		$pdf->MultiCell(196,5,$medida,0,'L');
+		$bullet = $pdf->bullet($imp['bullet']);
+		$pdf->MultiCell(196,5,$bullet,0,'L');
+		$pdf->Ln(4);
+	
+		// FILA 1:
+		$titulo = $pdf->titulo('RESILENCIA ANTE LOS RETOS DEL COVID-19');
+		$pdf->MultiCell(196,5,$titulo,0,'C',true);
+		$xLine1 = $pdf->GetX();
+		$yLine1 = $pdf->GetY();
+		$pdf->Ln(3);
+
+		// FILA 2:
+		$x = $pdf->GetX();
+		$y = $pdf->GetY();
+		$subtitulo = $pdf->subtitulo('¿Qué se hizo?');
+		$pdf->MultiCell(96,5,$subtitulo,0,'L');
+		$pdf->SetXY($x+100,$y);
+		$subtitulo = $pdf->subtitulo('¿Cuánto se hizo?');
+		$pdf->MultiCell(96,5,$subtitulo,0,'L');
+
+		// FILA 3:
+		$x = $pdf->GetX();
+		$y = $pdf->GetY();
+		$contenido = $pdf->contenido($imp['que']);
+		$pdf->MultiCell(96,5,$contenido,0,'J');
+		$y1 = $pdf->GetY();
+		$pdf->SetXY($x+100,$y);
+		$contenido = $pdf->contenido($imp['cuanto']);
+		$pdf->MultiCell(96,5,$contenido,0,'J');
+		$y2 = $pdf->GetY();
+
+		if($y1>$y2)
+			$y = $y1;
+
+		else if($y2>$y1)
+			$y = $y2;
+
+		else
+			$y = $y1;
+
+		$pdf->Line($xLine1+98,$yLine1+1.5,$x+98,$y);
+		$pdf->Line($x+1.5,$y+1.5,$x+194.5,$y+1.5);
+*/
+		// FILA 4:
+		
+
+		// FILA 5:
+		$contenido = $pdf->contenido($imp['fecha'].' | '.$imp['hora']);
+		$pdf->MultiCell(196,5,$contenido,0,'R');
+		$pdf->Ln(5);
+		$titulo = $pdf->titulo('SOLICITUD DE INFORMACIÓN');
+		$pdf->MultiCell(196,5,$titulo,0,'C',true);
+		$pdf->Ln(6);
+		$subtitulo = $pdf->subtitulo('Dependencia que solicita: ' .$imp['dependencia']);
+		$pdf->MultiCell(196,5,$subtitulo,0,'C');
+		$pdf->Ln(3);
+		$subtitulo = $pdf->subtitulo('Producto:');
+		$pdf->MultiCell(96,5,$subtitulo,0,'L');
+		$contenido = $pdf->contenido($imp['producto']);
+		$pdf->MultiCell(196,5,$contenido,0,'J');
+		$pdf->Ln(3);
+		$subtitulo = $pdf->subtitulo('Prioridad: ');
+		$pdf->MultiCell(96,5,$subtitulo,0,'L');
+		$contenido = $pdf->contenido($imp['prioridad']);
+		$pdf->MultiCell(196,5,$contenido,0,'J');
+		$pdf->Ln(3);
+		/*$subtitulo = $pdf->subtitulo('¿A que población va dirigida?');
+		$pdf->MultiCell(96,5,$subtitulo,0,'L');
+		$contenido = $pdf->contenido($imp['aquien']);
+		$pdf->MultiCell(196,5,$contenido,0,'J');
+		$pdf->Ln(3);*/
+		$titulo = $pdf->titulo('DESCRIPCIÓN');
+		$pdf->MultiCell(196,5,$titulo,0,'C',true);
+		$pdf->Ln(2);
+		$contenido = $pdf->contenido($imp['descripcion']);
+		$pdf->MultiCell(196,5,$contenido,0,'J');
+
+		/*// FILA 6:
+		$titulo = $pdf->titulo('ELEMENTOS CUALITATIVOS');
+		$pdf->MultiCell(196,5,$titulo,0,'C',true);
+		$pdf->Ln(3);
+
+		// FILA 7:
+		$subtitulo = $pdf->subtitulo('<<Pregunta>>');
+		$pdf->MultiCell(196,5,$subtitulo,0,'L');
+
+		// FILA 8:
+		$contenido = $pdf->contenido($imp['descripcion']);
+		$pdf->MultiCell(196,5,$contenido,0,'J');
+		$pdf->Ln(3);*/
+
+		// FILA 9:
+		
+	}
+
+	// "FIN DEL DOCUMENTO"  
+	$pdf->Output();
+?>

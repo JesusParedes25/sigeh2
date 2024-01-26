@@ -31,8 +31,7 @@
 			</div> <!-- /.row -->
       </div> <!-- /.container -->
     </footer> <!-- /.site-footer -->
-
-    <!-- Preloader -->
+	<!-- Preloader -->
     <div id="overlayer"></div>
     <div class="loader">
     	<div class="spinner-border text-primary" role="status">
@@ -40,32 +39,15 @@
     	</div>
     </div>
 
+	<script src="../js/bootstrap.bundle.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="../dist/js/tabby.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../js/tiny-slider.js"></script>
-
     <script src="../js/flatpickr.min.js"></script>
-
-
     <script src="../js/aos.js"></script>
     <script src="../js/glightbox.min.js"></script>
     <script src="../js/navbar.js"></script>
     <script src="../js/counter.js"></script>
     <script src="../js/custom.js"></script>
-	<script>
-		var tabs = new Tabby('[data-tabs]');
-	</script>
-    <script>
-		$(document).ready(function() {
-  $(".dropdown-arrow").click(function() {
-    $(".menu-derecha").toggle(); // muestra u oculta el menú al hacer clic en la flecha
-  });
-});
-$('.dropdown-arrow').on('click', function() {
-  $('.menu-derecha').toggleClass('show');
-});
 
-
-	</script>
-  </body>
-  </html>
+    

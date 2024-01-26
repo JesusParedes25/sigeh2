@@ -31,6 +31,20 @@
 
 	<link rel="stylesheet" href="../css/flatpickr.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/css/tabby-ui.css">
+
+	<script src="leaflet2/leaflet.js"></script>
+	<link rel="stylesheet" href="L.Control.Basemaps.css" />
+
+	<script src="L.Control.Basemaps.js"></script>
+
+<link rel="stylesheet" href="leaflet2/leaflet.css" />
+
+		<script src="Leaflet.CountrySelect.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<link rel="stylesheet" href="layercontrol/css/styledLayerControl.css" />
+	<script src="layercontrol/src/styledLayerControl.js"></script>
 	
 
 
@@ -54,7 +68,7 @@
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="../index.html" class="logo m-0 float-start">
+							<a href="/" class="logo m-0 float-start">
 								<img src="../images/logo_gobhidalgo.png" alt="Logo SIGEH" style="padding-bottom: 10px;">
 							  </a>							  
 						</div>
@@ -81,7 +95,7 @@
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="../index.html" class="logo m-0 float-start">SIGEH<span class="text-primary"></span></a>
+							<a href="/" class="logo m-0 float-start">SIGEH<span class="text-primary"></span></a>
 						</div>
 						<div class="col-8 text-center">
 							<!-- <form action="#" class="search-form d-inline-block d-lg-none">
@@ -90,33 +104,33 @@
 							</form>-->
 
 							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-								<li><a href="../index.html">Inicio</a></li>
-								<li><a href="../h_productos.html#solicitud">Solicitud de Productos</a></li>
+								<li><a href="/">Inicio</a></li>
+								<li><a href="h_productos.php#solicitud">Solicitud de Productos</a></li>
 								<li class="has-children">
-									<a href="h_mapas.html">Mapas</a>
+									<a>Mapas</a>
 									<ul class="dropdown">
 										<li>
-											<a href="../h_mapas.html">Hidalgo en Mapas</a>
+											<a href="h_mapas.php">Hidalgo en Mapas</a>
 										</li>
-										<li ><a href="../search-result.html" style="color: orange; cursor:default;">Atlas interactivo del estado de Hidalgo</a></li>
+										<li ><a href="../maps/atlas.html" style="color: orange; cursor:default;">Atlas interactivo del estado de Hidalgo</a></li>
 									</ul>
 								</li>
 								<li class="has-children">
 									<a>Estadísticas</a>
 									<ul class="dropdown">
-										<li><a href="../h_desempeño.html">Desempeño de Gobierno</a></li>
+										<li><a href="h_desempeño.php">Desempeño de Gobierno</a></li>
 										<ul class="dropdown"></ul>
 										<li class="has-children">				
-											<a href="../h_numeros.html">Hidalgo en Números</a>
+											<a href="h_numeros.php">Hidalgo en Números</a>
 											<ul class="dropdown">
-												<li><a href="tableros.html">Tableros dinámicos</a></li>
-												<li><a href="infografias.html">Infografías municipales</a></li>
-												<li><a href="bui.html">Banco único de Información Estadística</a></li>
+												
+												<li><a href="../maps/infografias.php">Infografías municipales</a></li>
+												<li><a href="#">Banco único de Información Estadística</a></li>
 											</ul>
 										</li>
 									</ul>
 								</li>
-								<li><a href="../h_normatividad.html">Marco Normativo</a></li>
+								<li><a href="h_normatividad.php">Marco Normativo</a></li>
 								
 						</div>
 						<div class="col-2 text-end">
