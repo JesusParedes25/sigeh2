@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="widget">
-						<img src="../images/logo_gobhidalgo.png">
+						<img src="../../images/logo_gobhidalgo.png">
 					</div> <!-- /.widget -->
 					<div class="widget" style="text-align: center;">
 						<h3 >Social</h3>
@@ -15,7 +15,7 @@
 				</div> <!-- /.col-lg-4 -->
 				<div class="col-lg-4 ps-lg-5">
 					<div class="widget">
-						<img src="../images/escudo_blanco.svg">
+						<img src="../../images/escudo_blanco.svg">
 						<p style="text-align: center;">© 2023 Gobierno del Estado de Hidalgo</p>
 					</div> <!-- /.widget -->
 				</div> <!-- /.col-lg-4 -->
@@ -39,15 +39,15 @@
     	</div>
     </div>
 
-	<script src="../js/bootstrap.bundle.min.js"></script>
+	<script src="../../js/bootstrap.bundle.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/tiny-slider.js"></script>
-    <script src="../js/flatpickr.min.js"></script>
-    <script src="../js/aos.js"></script>
-    <script src="../js/glightbox.min.js"></script>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/counter.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="../../js/tiny-slider.js"></script>
+    <script src="../../js/flatpickr.min.js"></script>
+    <script src="../../js/aos.js"></script>
+    <script src="../../js/glightbox.min.js"></script>
+    <script src="../../js/navbar.js"></script>
+    <script src="../../js/counter.js"></script>
+    <script src="../../js/custom.js"></script>
 
     

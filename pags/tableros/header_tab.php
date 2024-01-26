@@ -19,32 +19,18 @@
 
 
 	
-	<link rel="stylesheet" href="../fonts/icomoon/style.css">
-	<link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="../../fonts/icomoon/style.css">
+	<link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css">
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-	<link rel="stylesheet" href="../css/tiny-slider.css">
-	<link rel="stylesheet" href="../css/aos.css">
-	<link rel="stylesheet" href="../css/glightbox.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../../css/tiny-slider.css">
+	<link rel="stylesheet" href="../../css/aos.css">
+	<link rel="stylesheet" href="../../css/glightbox.min.css">
+	<link rel="stylesheet" href="../../css/style.css">
 
-	<link rel="stylesheet" href="../css/flatpickr.min.css">
-	<link rel="stylesheet" type="text/css" href="../dist/css/tabby-ui.css">
-
-	<script src="leaflet2/leaflet.js"></script>
-	<link rel="stylesheet" href="L.Control.Basemaps.css" />
-
-	<script src="L.Control.Basemaps.js"></script>
-
-<link rel="stylesheet" href="leaflet2/leaflet.css" />
-
-		<script src="Leaflet.CountrySelect.js"></script>
-	
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-		<link rel="stylesheet" href="layercontrol/css/styledLayerControl.css" />
-	<script src="layercontrol/src/styledLayerControl.js"></script>
+	<link rel="stylesheet" href="../../css/flatpickr.min.css">
+	<link rel="stylesheet" type="text/css" href="../../dist/css/tabby-ui.css">
 	
 
 
@@ -57,7 +43,7 @@
 		  <div class="site-mobile-menu-close">
 			<span class="icofont-close js-menu-toggle"></span>
 		  </div>
-		  <img src="../images/logo_menu2.png" alt="Descripción de la imagen" class="mobile-menu-image">
+		  <img src="../../images/logo_menu2.png" alt="Descripción de la imagen" class="mobile-menu-image">
 		</div>
 		<div class="site-mobile-menu-body"></div>
 	  </div>
@@ -69,7 +55,7 @@
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
 							<a href="/" class="logo m-0 float-start">
-								<img src="../images/logo_gobhidalgo.png" alt="Logo SIGEH" style="padding-bottom: 10px;">
+								<img src="../../images/logo_gobhidalgo.png" alt="Logo SIGEH" style="padding-bottom: 10px;">
 							  </a>							  
 						</div>
 					<!-- Este menú se muestra en pantallas de 600px o más -->
@@ -105,12 +91,12 @@
 
 							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
 								<li><a href="/">Inicio</a></li>
-								<li><a href="h_productos.php#solicitud">Solicitud de Productos</a></li>
+								<li><a href="../h_productos.php#solicitud">Solicitud de Productos</a></li>
 								<li class="has-children">
 									<a>Mapas</a>
 									<ul class="dropdown">
 										<li>
-											<a href="h_mapas.php">Hidalgo en Mapas</a>
+											<a href="../h_mapas.php">Hidalgo en Mapas</a>
 										</li>
 										<li ><a href="../maps/atlas.html" style="color: orange; cursor:default;">Atlas interactivo del estado de Hidalgo</a></li>
 									</ul>
@@ -118,19 +104,19 @@
 								<li class="has-children">
 									<a>Estadísticas</a>
 									<ul class="dropdown">
-										<li><a href="h_desempeño.php">Desempeño de Gobierno</a></li>
+										<li><a href="../h_desempeño.php">Desempeño de Gobierno</a></li>
 										<ul class="dropdown"></ul>
 										<li class="has-children">				
-											<a href="h_numeros.php">Hidalgo en Números</a>
+											<a href="../h_numeros.php">Hidalgo en Números</a>
 											<ul class="dropdown">
-												
-												<li><a href="../maps/infografias.php">Infografías municipales</a></li>
-												<li><a href="#">Banco único de Información Estadística</a></li>
+												<li><a href="tableros.php">Tableros dinámicos</a></li>
+												<li><a href="infografias.php">Infografías municipales</a></li>
+												<li><a href="bui.php">Banco único de Información Estadística</a></li>
 											</ul>
 										</li>
 									</ul>
 								</li>
-								<li><a href="h_normatividad.php">Marco Normativo</a></li>
+								<li><a href="../h_normatividad.html">Marco Normativo</a></li>
 								
 						</div>
 						<div class="col-2 text-end">
