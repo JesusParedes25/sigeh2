@@ -546,7 +546,6 @@ function getColorForActivity(nombre_act) {
         case 'Minería de otras piedras dimensionadas': return 'gray'; 
         case 'Minería de tezontle y tepetate': return 'yellow'; 
         case 'Minería de sílice': return 'purple'; 
-        
 
         default: return '#000000'; // Color por defecto si no coincide con ningún caso
     }
