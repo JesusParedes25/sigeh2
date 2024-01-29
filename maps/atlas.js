@@ -3,11 +3,12 @@
 
 	  
 	  var basemaps = [
-		L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+		L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 	maxZoom: 20,minZoom:8,
 	attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	,label:'Terreno'
-}),
+	,label:'Terreno',
+
+}).addTo(map),
 		
 		L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -35,6 +36,8 @@
 	  L.control.zoom({
 		   position: 'bottomleft'
 	  }).addTo(map);
+   
+      
       
 //Estilos
 function estiloCoropleta(feature) {
@@ -75,7 +78,7 @@ var coloresPorNumero = {
 };
 
 	  
-//INFORMACIÓN GENERAL
+//Desagregación geográfica
 	  // Capa Municipios
 	  var geojsonLayer = L.geoJSON(municipios, {
 		style: function(feature) {
@@ -279,7 +282,51 @@ var loc_urb = L.geoJSON(loc_urbanas, {
             });
         });
     }
-})
+});
+
+
+var manzanasLayer = L.geoJSON(manzanas1, {
+    style: function(feature) {
+        // Define aquí los estilos de los polígonos
+        return {
+            color: "yellow", // Color de línea
+            weight: 1,        // Grosor de la línea
+            opacity: 1,       // Opacidad de la línea
+            fillColor: "#a18262", // Color de relleno
+            fillOpacity: 0.4   // Opacidad de relleno
+        };
+    },
+    onEachFeature: function (feature, layer) {
+        layer.on('click', function () {
+            var properties = feature.properties;
+            var popupContent = '<div style="max-height: 400px; overflow-y: auto;">';
+            popupContent += '<table style="width: 100%; border-collapse: collapse;">';
+            
+            for (var key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    popupContent += '<tr>' +
+                                        '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff; width: 50%;"><strong>' + key + '</strong></td>' +
+                                        '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff; width: 50%;">' + properties[key] + '</td>' +
+                                    '</tr>';
+                }
+            }
+            popupContent += '</table></div>';
+        
+            Swal.fire({
+                title: '<strong>Información a nivel manzana</strong>',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    title: 'my-title-class',
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
+        
+        
+    }
+});
 
 
 
@@ -667,13 +714,14 @@ legendMinNoMetalica.onAdd = function(map) {
 // Define tus capas en el formato del plugin Leaflet.StyledLayerControl
 var overlays = [
 	{
-	  groupName: "Información general", 
+	  groupName: "Desagregación geográfica", 
 	  expanded: false,
 	  layers: {
 		"Municipios": geojsonLayer,
         "Regiones administrativas": regionesLayer,
 		"Localidades": markersCluster,
 		"Localidades urbanas": loc_urb,
+        "Manzanas": manzanasLayer,
 		"Agebs": iter_ageb,
 
 	  }
