@@ -13,8 +13,8 @@
 		L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 			subdomains: 'abcd',
-			minZoom: 1,
-			maxZoom: 16,
+			minZoom: 8,
+			maxZoom: 18,
 			ext: 'jpg',
 			label:'Imágenes satelitales'
 		}),
@@ -22,7 +22,7 @@
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 			subdomains: 'abcd',
 			maxZoom: 20,
-			minZoom: 0,
+			minZoom: 8,
 			label: 'Open Street Map'
 		}),		
 	];
@@ -655,6 +655,103 @@ legendMinNoMetalica.onAdd = function(map) {
 };
 
 
+//SALUD
+/// Capa de Hospitales
+var hospitalesLayer = L.layerGroup();
+
+// Crear los marcadores para los hospitales y añadirlos a la capa de grupo
+hospitales.features.forEach(function(hospital) {
+    var customIcon = L.icon({
+        iconUrl: 'img/icon/hospital.png', // Ruta al archivo de icono personalizado
+        iconSize: [30, 30] // Tamaño del icono
+    });
+
+    var marker = L.marker([hospital.properties.lat, hospital.properties.long], { icon: customIcon });
+
+    // Evento de click para cada marcador
+    marker.on('click', function(e) {
+        var properties = hospital.properties;
+        var popupContent = '<div style="max-height: 400px; overflow-y: auto;"><table style="width:100%;">';
+
+        // Añade las filas de la tabla
+        for (var key in properties) {
+            if (properties.hasOwnProperty(key)) {
+                popupContent += '<tr><td style="padding: 4px; border: 1px solid #691c32;"><strong>' + key + ':</strong></td>' +
+                                '<td style="padding: 4px; border: 1px solid #691c32;">' + properties[key] + '</td></tr>';
+            }
+        }
+        popupContent += '</table></div>';
+
+        // Muestra el contenido en SweetAlert2
+        Swal.fire({
+            title: 'Información del Hospital',
+            html: popupContent,
+            width: 600,
+            background: '#FAFAFA',
+            customClass: {
+                title: 'my-title-class',
+                confirmButton: 'my-confirm-button-class'
+            }
+        });
+    });
+
+    // Añade el marcador a la capa de grupo
+    hospitalesLayer.addLayer(marker);
+});
+
+// EDUCACIÓN
+// Capa de Escuelas
+// Crear el grupo de clusters para escuelas
+var markersEscuelas = L.markerClusterGroup();
+
+// Crear la capa de puntos para las escuelas
+escuelas.features.forEach(function(escuela) {
+    var customIcon = L.icon({
+        iconUrl: 'img/icon/colegio.png', // Ruta al archivo de icono personalizado
+        iconSize: [50, 50] // Tamaño del icono
+    });
+
+    var lati4 = escuela.properties.y.toPrecision(8);
+    var longi4 = escuela.properties.x.toPrecision(8);
+
+    var marker = L.marker([lati4, longi4], { icon: customIcon });
+
+    // Evento de click para cada marcador
+    marker.on('click', function(e) {
+        var properties = escuela.properties;
+        var popupContent = '<div style="max-height: 400px; overflow-y: auto;"><table style="width:100%;">';
+
+        // Añade las filas de la tabla
+        for (var key in properties) {
+            if (properties.hasOwnProperty(key) && key !== 'y' && key !== 'x') {
+                popupContent += '<tr><td style="padding: 4px; border: 1px solid #691c32;"><strong>' + key + ':</strong></td>' +
+                                '<td style="padding: 4px; border: 1px solid #691c32;">' + properties[key] + '</td></tr>';
+            }
+        }
+        popupContent += '</table></div>';
+
+        // Muestra el contenido en SweetAlert2
+        Swal.fire({
+            title: 'Información de la Escuela',
+            html: popupContent,
+            width: 600,
+            background: '#FAFAFA',
+            customClass: {
+                title: 'my-title-class',
+                confirmButton: 'my-confirm-button-class'
+            }
+        });
+    });
+
+    // Añade el marcador al grupo de clusters
+    markersEscuelas.addLayer(marker);
+});
+
+
+
+
+
+
 
 
 
@@ -758,6 +855,20 @@ var overlays = [
 		layers: {
 		  "Zonas industriales": industriaLayer,
           "Minería no metálica": minNoMetalicaLayer
+		}
+	  },
+      {
+		groupName: "Salud",  
+		expanded: false,
+		layers: {
+		  "Hospitales": hospitalesLayer,
+		}
+	  },
+      {
+		groupName: "Educación",  
+		expanded: false,
+		layers: {
+		  "Planteles de Educación Básica": markersEscuelas,
 		}
 	  },
 ];
