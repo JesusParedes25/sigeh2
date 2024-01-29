@@ -118,7 +118,7 @@ include 'header.php';
 					</h2>
 					<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
 						  <div class="list-group">
-							  <a href="#" class="list-group-item list-group-item-action">Gasolineras</a>
+							  <!--<a href="#" class="list-group-item list-group-item-action">Gasolineras</a>-->
 							  <a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=19e1f2b4f36d4a0da1517ece06598b60" class="list-group-item list-group-item-action">Puntos de acceso a internet gratuito </a>
 							  <a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=656c001375cc4fe19be4ef7d567f63cb" class="list-group-item list-group-item-action">Vereficentros </a>
 							  <a href="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=1390ca28fb7a436d84cfdc67adf7044e" class="list-group-item list-group-item-action">Puntos de carga para vehículos eléctricos </a>

@@ -32,13 +32,15 @@ include 'header.php';
 
 	  <div class="container">
 		<div class="card mb-3" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
-			<img class="card-img-top vertigo-effect" src="../images/banco.png" alt="Card image cap" >
-		  </div>
+			<a href="consulta_mun.php">
+				<img class="card-img-top vertigo-effect" src="../images/banco.png" alt="Card image cap" >
+			</a>
+		</div>
 		  <hr class="red small-margin">
 		  <div class="col-lg-3">
 			<a href="/" class="read-more">Volver</a>
 			</div>
-  </div>
+  	  </div>
 	</section>
 	
 	
