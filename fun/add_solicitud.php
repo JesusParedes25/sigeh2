@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 	include('conexion_s.php');
 	date_default_timezone_set('America/Mazatlan');
 
@@ -17,7 +18,7 @@
 
 	$sql = "INSERT INTO solicitudes24 (`id`,`dependencia`, `correo`, `estatus`, `producto`, `prioridad`, `descripcion`, `folio`, `fecha`, `hora`)
 			VALUES('','$dep', '$correo','$estatus', '$producto', '$prioridad', '$desc', '$folio', '$fecha', '$hora')";
-	echo $sql;
+	//echo $sql;
 	$link = mysqli_query($conn,$sql);
 	
 
