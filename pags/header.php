@@ -33,19 +33,19 @@
 	<link rel="stylesheet" href="../css/flatpickr.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/css/tabby-ui.css">
 
-	<script src="leaflet2/leaflet.js"></script>
-	<link rel="stylesheet" href="L.Control.Basemaps.css" />
+	<script src="../maps/leaflet/leaflet.js"></script>
+	<link rel="stylesheet" href="../maps/L.Control.Basemaps.css" />
 
-	<script src="L.Control.Basemaps.js"></script>
+	<script src="../maps/L.Control.Basemaps.js"></script>
 
-<link rel="stylesheet" href="leaflet2/leaflet.css" />
+<link rel="stylesheet" href="../maps/leaflet/leaflet.css" />
 
-		<script src="Leaflet.CountrySelect.js"></script>
+		<script src="../maps/Leaflet.CountrySelect.js"></script>
 	
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-		<link rel="stylesheet" href="layercontrol/css/styledLayerControl.css" />
-	<script src="layercontrol/src/styledLayerControl.js"></script>
+		<link rel="stylesheet" href="../maps/layercontrol/css/styledLayerControl.css" />
+	<script src="../maps/layercontrol/src/styledLayerControl.js"></script>
 	
 
 

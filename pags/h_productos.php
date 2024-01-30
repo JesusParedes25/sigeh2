@@ -419,7 +419,7 @@ include 'header.php';
     <script src="../js/flatpickr.min.js"></script>
     <script src="../js/aos.js"></script>
     <script src="../js/glightbox.min.js"></script>
-    <script src="../js/navbar.js"></script>
+    
     <script src="../js/counter.js"></script>
     <script src="../js/custom.js"></script>
 
@@ -436,17 +436,17 @@ include 'header.php';
     if (themeSelect.value) {
       // Simulación de carga de mapas basada en el tema seleccionado
       var maps = {
-        'tema1': ['../pdf/visualizador_mapas/1demografia/PUEBLOS INDIGENAS MIGRANTES.pdf', 'pdf/visualizador_mapas/1demografia/REZAGO EN EL MUNICIPIO DE METEPEC.pdf','pdf/visualizador_mapas/1demografia/PROYECTOS INF_DEMOGRAFICA LENGUA INDIGENA.pdf'],
-        'tema2': ['../pdf/visualizador_mapas/2energia/Plantas_Energia_Solar_Hgo.pdf','pdf/visualizador_mapas/2energia/Centro cultural Ferrocarril y estación Ferrosur.pdf'],
-		'tema3': ['../pdf/visualizador_mapas/3industria/Parques Industriales.pdf', 'pdf/visualizador_mapas/3industria/Proyecto Santa Clara.pdf',,'pdf/visualizador_mapas/3industria/Industrias en actopan.PNG'],
-        'tema4': ['../pdf/visualizador_mapas/4infraestructura/PROYECTOS COL_PACHUCA INFRA_HIDRAULICA v2.pdf','pdf/visualizador_mapas/4infraestructura/PROYECTOS PTARs.pdf','pdf/visualizador_mapas/4infraestructura/Infraestructura Ferroviaria.pdf','pdf/visualizador_mapas/4infraestructura/Red vial.pdf','pdf/visualizador_mapas/4infraestructura/Hospitales de Metepec.pdf','pdf/visualizador_mapas/4infraestructura/Infraestructura básica en Pachuca de Soto.jpg'],
-		'tema5': ['../pdf/visualizador_mapas/5medio_fisico_natural/Precipitacion.pdf','pdf/visualizador_mapas/5medio_fisico_natural/Temperatura.pdf','pdf/visualizador_mapas/5medio_fisico_natural/Modelo digital de elevación del Estado de Hidalgo.pdf','pdf/visualizador_mapas/5medio_fisico_natural/Uso de suelo en Metepec.pdf'],
-		'tema6': ['../pdf/visualizador_mapas/6limites_administrativos/Regionalizacion.pdf','pdf/visualizador_mapas/6limites_administrativos/Distritos electorales.pdf','pdf/visualizador_mapas/6limites_administrativos/Macroregiones y microregiones.pdf'],
-		'tema7': ['../pdf/visualizador_mapas/7desarrollo_social/Zonas Prioritarias.pdf','pdf/visualizador_mapas/7desarrollo_social/Producción de Café.pdf'],
+        'tema1': ['../../pdf/visualizador_mapas/1demografia/PUEBLOS INDIGENAS MIGRANTES.pdf', '../../pdf/visualizador_mapas/1demografia/REZAGO EN EL MUNICIPIO DE METEPEC.pdf','../../pdf/visualizador_mapas/1demografia/PROYECTOS INF_DEMOGRAFICA LENGUA INDIGENA.pdf'],
+        'tema2': ['../../pdf/visualizador_mapas/2energia/Plantas_Energia_Solar_Hgo.pdf','../../pdf/visualizador_mapas/2energia/Centro cultural Ferrocarril y estación Ferrosur.pdf'],
+		'tema3': ['../../pdf/visualizador_mapas/3industria/Parques Industriales.pdf', '../../pdf/visualizador_mapas/3industria/Proyecto Santa Clara.pdf',,'../../pdf/visualizador_mapas/3industria/Industrias en actopan.PNG'],
+        'tema4': ['../../pdf/visualizador_mapas/4infraestructura/PROYECTOS COL_PACHUCA INFRA_HIDRAULICA v2.pdf','../../pdf/visualizador_mapas/4infraestructura/PROYECTOS PTARs.pdf','../../pdf/visualizador_mapas/4infraestructura/Infraestructura Ferroviaria.pdf','pdf/visualizador_mapas/4infraestructura/Red vial.pdf','pdf/visualizador_mapas/4infraestructura/Hospitales de Metepec.pdf','pdf/visualizador_mapas/4infraestructura/Infraestructura básica en Pachuca de Soto.jpg'],
+		'tema5': ['../../pdf/visualizador_mapas/5medio_fisico_natural/Precipitacion.pdf','../../pdf/visualizador_mapas/5medio_fisico_natural/Temperatura.pdf','../../pdf/visualizador_mapas/5medio_fisico_natural/Modelo digital de elevación del Estado de Hidalgo.pdf','pdf/visualizador_mapas/5medio_fisico_natural/Uso de suelo en Metepec.pdf'],
+		'tema6': ['../../pdf/visualizador_mapas/6limites_administrativos/Regionalizacion.pdf','../../pdf/visualizador_mapas/6limites_administrativos/Distritos electorales.pdf','../../pdf/visualizador_mapas/6limites_administrativos/Macroregiones y microregiones.pdf'],
+		'tema7': ['../../pdf/visualizador_mapas/7desarrollo_social/Zonas Prioritarias.pdf','../../pdf/visualizador_mapas/7desarrollo_social/Producción de Café.pdf'],
 
         
       };
-	  maps[themeSelect00000000000000000.value].forEach(function(filePath) {
+	  maps[themeSelect.value].forEach(function(filePath) {
         var option = document.createElement('option');
         option.value = filePath;
         

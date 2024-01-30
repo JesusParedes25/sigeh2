@@ -50,6 +50,15 @@ function estiloCoropleta(feature) {
         fillOpacity: 1
     };
 }
+function estiloDensidadPoblacional(feature) {
+    return {
+        fillColor: getColorForDensidad(feature.properties["Densidad poblacional (personas por km2)"]),
+        weight: 0.4,
+        opacity: 1,
+        color: 'black',
+        fillOpacity: 0.7
+    };
+}
 
 function getColor(d) {
     return d > 77.4 ? '#2c7fb8' :
@@ -58,6 +67,15 @@ function getColor(d) {
            d > 6.7  ? '#a1dab4' :
                       '#ffffcc';
 }
+function getColorForDensidad(d) {
+    return d > 5369 ? '#67000d' :
+           d > 2561  ? '#d32020' :
+           d > 1230 ? '#fb8123' :
+           d >  562 ? '#fcbea5' :
+                      '#fff5f0' ;
+
+}
+
 // Función para obtener el color en base al número 'nueva_num'
 function getColor2(numero) {
     return coloresPorNumero[numero] || 'gray'; // Devuelve un color gris como predeterminado si no se encuentra el número
@@ -248,7 +266,7 @@ var iter_ageb = L.geoJSON(iter_ageb, {
         
         
     }
-})
+});
 
 
 var loc_urb = L.geoJSON(loc_urbanas, {
@@ -552,6 +570,91 @@ var PobIndHog = L.geoJSON(pob_ind_hog, {
         });
     }
 });
+//POBLACIÓN Y VIVIENDA | Parques y Jardines
+// Capa de Parques
+var parquesLayer = L.layerGroup();
+
+ParquesyJardines.features.forEach(function(parque) {
+    var customIcon = L.icon({
+        iconUrl: 'img/icon/arbol2.png', // Ruta al archivo de icono personalizado
+        iconSize: [30, 30] // Tamaño del icono
+    });
+
+    var marker = L.marker([parque.properties.lat, parque.properties.long], { icon: customIcon });
+
+    // Evento de click para cada marcador
+    marker.on('click', function(e) {
+        var nombreParque = parque.properties.Name; // Asegúrate de que 'Name' es el nombre correcto del campo
+
+        // Construye el contenido para SweetAlert2
+        var popupContent = '<div style="max-height: 400px; overflow-y: auto;"><table style="width:100%;">' +
+                           '<tr><td style="padding: 4px; border: 1px solid #691c32;"><strong>Nombre:</strong></td>' +
+                           '<td style="padding: 4px; border: 1px solid #691c32;">' + nombreParque + '</td></tr>' +
+                           '</table></div>';
+
+        // Muestra el contenido en SweetAlert2
+        Swal.fire({
+            title: 'Información de Parques y Jardines',
+            html: popupContent,
+            width: 600,
+            background: '#FAFAFA',
+            customClass: {
+                title: 'my-title-class',
+                confirmButton: 'my-confirm-button-class'
+            }
+        });
+    });
+
+    // Añade el marcador a la capa de grupo
+    parquesLayer.addLayer(marker);
+});
+var poligonosLayer = L.geoJSON(ParquesyJardinesPoligonos, {
+    style: function(feature) {
+        return {
+            fillColor: 'lightgreen',
+            fillOpacity: 0.7,
+            color: 'green',
+            weight: 1
+        };
+    }
+});
+// Capa de grupo para Parques y Jardines
+var parquesYJardinesLayer = L.layerGroup([parquesLayer, poligonosLayer]);
+
+//POBLACIÓN Y VIVIENDA | Densidad poblacional
+var densidadPoblacionalLayer = L.geoJSON(densidadPoblacional, {
+    style: estiloDensidadPoblacional,
+    onEachFeature: function(feature, layer) {
+        layer.on('click', function() {
+            var properties = feature.properties;
+            var popupContent = '<div style="max-height: 400px; overflow-y: auto;"><h5>Información de Densidad Poblacional</h5><table style="width:100%; border-collapse: collapse;">';
+
+            // Iterar sobre todas las propiedades y añadirlas a la tabla
+            for (var key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    popupContent += '<tr>' +
+                                    '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff;"><strong>' + key + '</strong></td>' +
+                                    '<td style="padding: 4px; border: 1px solid #ddd; background-color: #fff;">' + properties[key] + '</td>' +
+                                    '</tr>';
+                }
+            }
+            popupContent += '</table></div>';
+
+            // Mostrar la tabla en SweetAlert2
+            Swal.fire({
+                title: '<strong>Información de Densidad Poblacional</strong>',
+                html: popupContent,
+                width: 600,
+                background: '#FAFAFA',
+                customClass: {
+                    confirmButton: 'my-confirm-button-class'
+                },
+            });
+        });
+    }
+});
+
+
 
 //INDUSTRIA
 var industriaLayer = L.geoJSON(industriales, {
@@ -846,7 +949,9 @@ var overlays = [
 		groupName: "Población y Vivienda",  
 		expanded: false,
 		layers: {
-		  "Población indígena en hogares": PobIndHog
+		  "Población indígena en hogares": PobIndHog,
+          "Parques y Jardines": parquesYJardinesLayer,
+          "Densidad poblacional a nivel localidad": densidadPoblacionalLayer,
 		}
 	  },
       {
@@ -978,6 +1083,37 @@ legendPobInd.onAdd = function (map) {
     div.innerHTML += labels.join('<br style="clear: both;">');
     return div;
 };
+var legendDensidadPoblacional = L.control({ position: 'bottomleft' });
+
+legendDensidadPoblacional.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    var densidadGrades = [0, 562, 1230, 2561, 5369]; // Intervalos de densidad
+    var labels = [], from, to;
+
+    // Estilo personalizado para la leyenda
+    div.style.padding = '6px 8px';
+    div.style.background = 'rgba(255,255,255,0.8)';
+    div.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+    div.style.borderRadius = '5px';
+    div.style.width = '180px';
+
+    // Agregar título a la leyenda
+    div.innerHTML = '<h7>Densidad Poblacional (personas por km²)</h7><br>';
+
+    // Itera a través de los intervalos y genera un label con un cuadrado de color para cada intervalo
+    for (var i = 0; i < densidadGrades.length; i++) {
+        from = densidadGrades[i];
+        to = densidadGrades[i + 1];
+
+        labels.push(
+            '<i style="background:' + getColorForDensidad(from + 1) + '; width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7"></i> ' +
+            '<span style="line-height: 18px;">' + from + (to ? '&ndash;' + to : '+') + '</span>');
+    }
+
+    div.innerHTML += labels.join('<br style="clear: both;">');
+    return div;
+};
+
 
 var legendCorrientes = L.control({position: 'bottomleft'});
 legendCorrientes.onAdd = function(map) {
@@ -1000,6 +1136,7 @@ function updateLegends() {
     var minNoMetalicaVisible = map.hasLayer(minNoMetalicaLayer);
     var corrientesVisible=map.hasLayer(corrientesLayer);
     var anpVisible = map.hasLayer(anpLayer);
+    var densidadVisible=map.hasLayer(densidadPoblacionalLayer)
     
     if (municipiosVisible) {
         legendMunicipios.addTo(map);
@@ -1034,6 +1171,11 @@ function updateLegends() {
         legendPobInd.addTo(map);
     } else {
         map.removeControl(legendPobInd);
+    }
+    if (densidadVisible) {
+        legendDensidadPoblacional.addTo(map);
+    } else {
+        map.removeControl(legendDensidadPoblacional);
     }
     if (minNoMetalicaVisible) {
         legendMinNoMetalica.addTo(map);
