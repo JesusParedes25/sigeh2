@@ -3,8 +3,8 @@ include 'header_map.php';
 ?>
 
 
-	<div class="section2" style="padding-top: 2rem;">
-		<iframe src="https://sigeh.maps.arcgis.com/apps/instant/basic/index.html?appid=2112758d10a648fa933e44acfb271e3c" width="100%" height="850px" frameborder="0" style="border:0" allowfullscreen>No se admiten iFrames en esta página.</iframe>
+	<div class="section2" style="padding-top: 3rem;">
+		<iframe src="https://sigeh.maps.arcgis.com/apps/webappviewer/index.html?id=9169076773c44c22a52bd19a5a3dbde8" width="100%" height="850px" frameborder="0" style="border:0" allowfullscreen>No se admiten iFrames en esta página.</iframe>
 	</div>
 
 	<?php

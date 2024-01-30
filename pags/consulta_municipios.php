@@ -256,7 +256,7 @@ error_reporting(0);
 <?php }?>
 
 <?php if ($economia != ""){
-   //echo "<h2 style='font-size: 18px;'>Información del Tema: Económico</h2> <br> <p>Fuente: INEGI. Censo de Población y Vivienda 2020. INEGI. Censo Economico 2019. Banco de México. Sistema de Información Económica.</p>";
+   echo "<h2 style='font-size: 18px;'>Información del Tema: Económico</h2> <br> <p>Fuente: INEGI. Censo de Población y Vivienda 2020. INEGI. Censo Economico 2019. Banco de México. Sistema de Información Económica.</p>";
    $sql2 = "SELECT * FROM ws_economico WHERE cve_mun='$clave_mun'";
    $resultM = mysqli_query($enlace,$sql2); ?>
         <div class="table-responsive">
@@ -683,7 +683,8 @@ error_reporting(0);
 <?php }?>
 
 <?php if ($pobreza != ""){
-    echo "<h2>Información del Tema: $pobreza</h2>  <br> <p>Fuente: Consejo Nacional de la Evaluación de la Política de Desarrollo Social CONEVAL. Medición de la Pobreza. Indicadores de la Pobreza por Municipio 2010-2020.</p>";
+    //echo "<h2>Información del Tema: $pobreza</h2>  <br> <p>Fuente: Consejo Nacional de la Evaluación de la Política de Desarrollo Social CONEVAL. Medición de la Pobreza. Indicadores de la Pobreza por Municipio 2010-2020.</p>";
+    echo "<h2>Información del Tema: $pobreza</h2>  ";
     $sql2 = "SELECT * FROM ws_pobreza WHERE cve_mun='$clave_mun'";
 
     $resultM = mysqli_query($enlace,$sql2); ?>
@@ -828,7 +829,8 @@ error_reporting(0);
 <?php }?>
 
 <?php if ($prod_agricola != ""){
-    echo "<h2>Información del Tema: Agrícola</h2>  <br> <p>Fuente: SAGARPA.Sistema de Información Agroalimentario y Pesquero SIAP 2017. Producción Agrícola 2017.</p>";
+    //echo "<h2>Información del Tema: Agrícola</h2>  <br> <p>Fuente: SAGARPA.Sistema de Información Agroalimentario y Pesquero SIAP 2017. Producción Agrícola 2017.</p>";
+    echo "<h2>Información del Tema: Agrícola</h2>  <br>";
     $sql2 = "SELECT * FROM ws_prod_agricola WHERE cve_muni='$clave_mun'";
     $resultM = mysqli_query($enlace,$sql2); ?>
         
@@ -1045,7 +1047,8 @@ error_reporting(0);
 <?php }?>
 
 <?php if ($salud != ""){
-    echo "<h2>Información del Tema: $salud</h2>  <br> <p>http://poblacion.hidalgo.gob.mx/pag/estadisticasdesalud.html  |  Fuente: COESPO. Consejo Estatal de Población</p>";
+    //echo "<h2>Información del Tema: $salud</h2>  <br> <p>http://poblacion.hidalgo.gob.mx/pag/estadisticasdesalud.html  |  Fuente: COESPO. Consejo Estatal de Población</p>";
+        echo "<h2>Información del Tema: $salud</h2>  <br> ";
     $sql2 = "SELECT * FROM ws_salud WHERE cve_mun='$clave_mun'";
     $resultM = mysqli_query($enlace,$sql2); ?>
         
@@ -1142,7 +1145,7 @@ error_reporting(0);
                         <td><?php echo number_format($result['PMDIF_2017'],0);?> Médicos</td>
                     </tr>
                     <tr>
-                        <th>Casas de salud, 2017</th>
+                        <th>Casas de salud</th>
                         <td><?php echo number_format($result['CS_2017'],0);?> Casas de salud</td>
                     </tr>
                     </tbody>
