@@ -275,5 +275,39 @@ select {
     left: 250px; /* El ancho de tu barra lateral */
     /* Resto de estilos */
   }
+
+
+    .swal2-confirm {
+        background-color: #691c32 !important; /* Color de fondo */
+        border-color: #691c32 !important; /* Color del borde, en caso de que quieras que coincida con el fondo */
+    }
+    .swal2-confirm:hover {
+        background-color: #5a1628 !important; /* Color de fondo al pasar el mouse por encima, opcional */
+    }
+
+    #listaProyectosDependencia {
+        list-style-type: none; /* Quita los marcadores de lista */
+        padding: 0;
+        max-height: 200px; /* Ajusta según necesites */
+        overflow-y: auto; /* Permite desplazamiento vertical si la lista es larga */
+        margin-top: 10px; /* Espacio arriba de la lista */
+        border: 1px solid #ccc; /* Borde sutil */
+        border-radius: 5px; /* Bordes redondeados */
+        background-color: #f9f9f9; /* Color de fondo */
+    }
+    
+    #listaProyectosDependencia li {
+        padding: 8px; /* Espaciado interno para cada elemento de la lista */
+        border-bottom: 1px solid #eee; /* Borde entre elementos de la lista */
+    }
+    
+    #listaProyectosDependencia li:last-child {
+        border-bottom: none; /* Elimina el borde inferior del último elemento */
+    }
+    
+    #listaProyectosDependencia li:hover {
+        background-color: #e8e8e8; /* Cambio de color al pasar el mouse */
+    }
+    
   
   

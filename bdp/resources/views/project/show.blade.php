@@ -25,6 +25,10 @@
                             {{ $project->tipo_proyecto }}
                         </div>
                         <div class="form-group">
+                            <strong>Sector:</strong>
+                            {{ $project->sector }}
+                        </div>
+                        <div class="form-group">
                             <strong>Quien Resgistra:</strong>
                             {{ $project->quien_resgistra }}
                         </div>
@@ -47,6 +51,10 @@
                         <div class="form-group">
                             <strong>Georreferencia:</strong>
                             {{ $project->georreferencia }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Nombre Proyecto:</strong>
+                            {{ $project->nombre_proyecto }}
                         </div>
                         <div class="form-group">
                             <strong>Descripcion:</strong>
@@ -81,12 +89,24 @@
                             {{ $project->beneficiarios }}
                         </div>
                         <div class="form-group">
-                            <strong>Territorio:</strong>
-                            {{ $project->territorio }}
-                        </div>
-                        <div class="form-group">
                             <strong>Alin Normativa:</strong>
                             {{ $project->alin_normativa }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Region:</strong>
+                            {{ $project->region }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Municipio:</strong>
+                            {{ $project->municipio }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Localidad:</strong>
+                            {{ $project->localidad }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Colonia:</strong>
+                            {{ $project->colonia }}
                         </div>
                         <div class="form-group">
                             <strong>Ped:</strong>
@@ -103,6 +123,14 @@
                         <div class="form-group">
                             <strong>Indicadores:</strong>
                             {{ $project->indicadores }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Tipo:</strong>
+                            {{ $project->tipo }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Id Usr:</strong>
+                            {{ $project->id_usr }}
                         </div>
 
                     </div>

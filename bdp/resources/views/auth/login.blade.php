@@ -13,7 +13,7 @@
                             <label for="email" class="col-md-3 col-form-label text-md-end">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Correo Electronico" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
                             <label for="password" class="col-md-3 col-form-label text-md-end">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña" >
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -40,16 +40,12 @@
                        
                         <div class="row mb-0">
                             <div class="col-md-4 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary">
                                     {{ __('Acceder') }}
                                 </button>                     
                             </div>
                             <hr>
-                            <div class="col-md-4 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Registrarse') }}
-                                </button>                     
-                            </div>
+                            
                         </div>
                         
                     </form>       

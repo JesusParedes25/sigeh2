@@ -185,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- End page header-->
             
                 <!-- Begin roatet box-2 -->
@@ -195,6 +196,7 @@
                                 
                                     
                                 <div>
+                                
                                     <input type="checkbox" class="check-colapse" style="display: block; " id="checkColapse-0001" />
                                     <label for="checkColapse-0001" class="colapse-title"><img src="img/dependencias.png" width="260px"></label>
                                     <div class="colapse-body" name="checkColapse-0001" id="checkColapse-0001">

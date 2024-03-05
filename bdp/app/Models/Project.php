@@ -9,12 +9,14 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $tipo_proyecto
+ * @property $sector
  * @property $quien_resgistra
  * @property $unidad_responsable
  * @property $uni_presupuestal
  * @property $ramo_presupuestal
  * @property $fecha_registro
  * @property $georreferencia
+ * @property $nombre_proyecto
  * @property $descripcion
  * @property $situacion_act
  * @property $objetivos
@@ -23,12 +25,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property $asignacion_obra
  * @property $modalidad
  * @property $beneficiarios
- * @property $territorio
  * @property $alin_normativa
+ * @property $region
+ * @property $municipio
+ * @property $localidad
+ * @property $colonia
  * @property $ped
  * @property $ods
  * @property $sectorial
  * @property $indicadores
+ * @property $tipo
+ * @property $id_usr
  * @property $created_at
  * @property $updated_at
  *
@@ -40,12 +47,14 @@ class Project extends Model
     
     static $rules = [
 		'tipo_proyecto' => 'required',
+		'sector' => 'required',
 		'quien_resgistra' => 'required',
 		'unidad_responsable' => 'required',
 		'uni_presupuestal' => 'required',
 		'ramo_presupuestal' => 'required',
 		'fecha_registro' => 'required',
 		'georreferencia' => 'required',
+		'nombre_proyecto' => 'required',
 		'descripcion' => 'required',
 		'situacion_act' => 'required',
 		'objetivos' => 'required',
@@ -54,12 +63,17 @@ class Project extends Model
 		'asignacion_obra' => 'required',
 		'modalidad' => 'required',
 		'beneficiarios' => 'required',
-		'territorio' => 'required',
 		'alin_normativa' => 'required',
+		'region' => 'required',
+		'municipio' => 'required',
+		'localidad' => 'required',
+		'colonia' => 'required',
 		'ped' => 'required',
 		'ods' => 'required',
 		'sectorial' => 'required',
 		'indicadores' => 'required',
+		'tipo' => 'required',
+		'id_usr' => 'required',
     ];
 
     protected $perPage = 20;
@@ -69,7 +83,7 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['tipo_proyecto','quien_resgistra','unidad_responsable','uni_presupuestal','ramo_presupuestal','fecha_registro','georreferencia','descripcion','situacion_act','objetivos','metas','prog_presupuestario','asignacion_obra','modalidad','beneficiarios','territorio','alin_normativa','ped','ods','sectorial','indicadores'];
+    protected $fillable = ['tipo_proyecto','sector','quien_resgistra','unidad_responsable','uni_presupuestal','ramo_presupuestal','fecha_registro','georreferencia','nombre_proyecto','descripcion','situacion_act','objetivos','metas','prog_presupuestario','asignacion_obra','modalidad','beneficiarios','alin_normativa','region','municipio','localidad','colonia','ped','ods','sectorial','indicadores','tipo','id_usr'];
 
 
 

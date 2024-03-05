@@ -1,79 +1,52 @@
-
-<div class="top-content">
-            <div class="container">
-                
-                <div class="row">
-                    <div class="form-box">
-                    <form method="POST" action="{{ route('projects.store') }}"  role="form" enctype="multipart/form-data" class="f1">
-
-                    		<h3>Registrar Proyecto</h3>
-                    		<div class="f1-steps">
-                    			<div class="f1-progress">
-                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
-                    			</div>
-                    			<div class="f1-step active">
-                    				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
-                    				<p>Paso 1</p>
-                    			</div>
-                    			<div class="f1-step">
-                    				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
-                    				<p>Paso 2</p>
-                    			</div>
-                    		    <div class="f1-step">
-                    				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
-                    				<p>Fin</p>
-                    			</div>
-                    		</div>
-                    		
-                    		
-                            <!--paso 1 -->
-                            <fieldset>
-                                <br>
-                                <div class="form-group">
-                                    {{ Form::label('tipo_proyecto') }}
-                                    {{ Form::text('tipo_proyecto', $project->tipo_proyecto, ['class' => 'form-control' . ($errors->has('tipo_proyecto') ? ' is-invalid' : ''), 'placeholder' => 'Tipo Proyecto']) }}
-                                    {!! $errors->first('tipo_proyecto', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('quien_resgistra') }}
-                                    {{ Form::text('quien_resgistra', $project->quien_resgistra, ['class' => 'form-control' . ($errors->has('quien_resgistra') ? ' is-invalid' : ''), 'placeholder' => 'Quien Resgistra']) }}
-                                    {!! $errors->first('quien_resgistra', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('unidad_responsable') }}
-                                    {{ Form::text('unidad_responsable', $project->unidad_responsable, ['class' => 'form-control' . ($errors->has('unidad_responsable') ? ' is-invalid' : ''), 'placeholder' => 'Unidad Responsable']) }}
-                                    {!! $errors->first('unidad_responsable', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('uni_presupuestal') }}
-                                    {{ Form::text('uni_presupuestal', $project->uni_presupuestal, ['class' => 'form-control' . ($errors->has('uni_presupuestal') ? ' is-invalid' : ''), 'placeholder' => 'Uni Presupuestal']) }}
-                                    {!! $errors->first('uni_presupuestal', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('ramo_presupuestal') }}
-                                    {{ Form::text('ramo_presupuestal', $project->ramo_presupuestal, ['class' => 'form-control' . ($errors->has('ramo_presupuestal') ? ' is-invalid' : ''), 'placeholder' => 'Ramo Presupuestal']) }}
-                                    {!! $errors->first('ramo_presupuestal', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                    			<div class="form-group">
-                                    {{ Form::label('fecha_registro') }}
-                                    {{ Form::text('fecha_registro', $project->fecha_registro, ['class' => 'form-control' . ($errors->has('fecha_registro') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Registro']) }}
-                                    {!! $errors->first('fecha_registro', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('georreferencia') }}
-                                    {{ Form::text('georreferencia', $project->georreferencia, ['class' => 'form-control' . ($errors->has('georreferencia') ? ' is-invalid' : ''), 'placeholder' => 'Georreferencia']) }}
-                                    {!! $errors->first('georreferencia', '<div class="invalid-feedback">:message</div>') !!}
-                                </div>
-                                <div class="f1-buttons">
-                                    <button type="button" class="btn btn-next">Siguiente</button>
-                                </div>
-                            </fieldset>
-                            <!--fin del paso 1 -->
-
-                            <!---paso 2 -->
-                            <fieldset>
-                                <br>
-                                <div class="form-group">
+<div class="box box-info padding-1">
+    <div class="box-body"> 
+        
+        <div class="form-group">
+            {{ Form::label('tipo_proyecto') }}
+            {{ Form::text('tipo_proyecto', $project->tipo_proyecto, ['class' => 'form-control' . ($errors->has('tipo_proyecto') ? ' is-invalid' : ''), 'placeholder' => 'Tipo Proyecto']) }}
+            {!! $errors->first('tipo_proyecto', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('sector') }}
+            {{ Form::text('sector', $project->sector, ['class' => 'form-control' . ($errors->has('sector') ? ' is-invalid' : ''), 'placeholder' => 'Sector']) }}
+            {!! $errors->first('sector', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('quien_resgistra') }}
+            {{ Form::text('quien_resgistra', $project->quien_resgistra, ['class' => 'form-control' . ($errors->has('quien_resgistra') ? ' is-invalid' : ''), 'placeholder' => 'Quien Resgistra']) }}
+            {!! $errors->first('quien_resgistra', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('unidad_responsable') }}
+            {{ Form::text('unidad_responsable', $project->unidad_responsable, ['class' => 'form-control' . ($errors->has('unidad_responsable') ? ' is-invalid' : ''), 'placeholder' => 'Unidad Responsable']) }}
+            {!! $errors->first('unidad_responsable', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('uni_presupuestal') }}
+            {{ Form::text('uni_presupuestal', $project->uni_presupuestal, ['class' => 'form-control' . ($errors->has('uni_presupuestal') ? ' is-invalid' : ''), 'placeholder' => 'Uni Presupuestal']) }}
+            {!! $errors->first('uni_presupuestal', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('ramo_presupuestal') }}
+            {{ Form::text('ramo_presupuestal', $project->ramo_presupuestal, ['class' => 'form-control' . ($errors->has('ramo_presupuestal') ? ' is-invalid' : ''), 'placeholder' => 'Ramo Presupuestal']) }}
+            {!! $errors->first('ramo_presupuestal', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('fecha_registro') }}
+            {{ Form::text('fecha_registro', $project->fecha_registro, ['class' => 'form-control' . ($errors->has('fecha_registro') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Registro']) }}
+            {!! $errors->first('fecha_registro', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('georreferencia') }}
+            {{ Form::text('georreferencia', $project->georreferencia, ['class' => 'form-control' . ($errors->has('georreferencia') ? ' is-invalid' : ''), 'placeholder' => 'Georreferencia']) }}
+            {!! $errors->first('georreferencia', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('nombre_proyecto') }}
+            {{ Form::text('nombre_proyecto', $project->nombre_proyecto, ['class' => 'form-control' . ($errors->has('nombre_proyecto') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Proyecto']) }}
+            {!! $errors->first('nombre_proyecto', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('descripcion') }}
             {{ Form::text('descripcion', $project->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
@@ -114,24 +87,29 @@
             {!! $errors->first('beneficiarios', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('territorio') }}
-            {{ Form::text('territorio', $project->territorio, ['class' => 'form-control' . ($errors->has('territorio') ? ' is-invalid' : ''), 'placeholder' => 'Territorio']) }}
-            {!! $errors->first('territorio', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-                                <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Atrás</button>
-                                    <button type="button" class="btn btn-next">Siguiente</button>
-                                </div>
-                            </fieldset>
-                            <!--fin del paso 2 -->
-
-                            <!--paso fin -->
-                            <fieldset>
-                                <br>
-                                <div class="form-group">
             {{ Form::label('alin_normativa') }}
             {{ Form::text('alin_normativa', $project->alin_normativa, ['class' => 'form-control' . ($errors->has('alin_normativa') ? ' is-invalid' : ''), 'placeholder' => 'Alin Normativa']) }}
             {!! $errors->first('alin_normativa', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('region') }}
+            {{ Form::text('region', $project->region, ['class' => 'form-control' . ($errors->has('region') ? ' is-invalid' : ''), 'placeholder' => 'Region']) }}
+            {!! $errors->first('region', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('municipio') }}
+            {{ Form::text('municipio', $project->municipio, ['class' => 'form-control' . ($errors->has('municipio') ? ' is-invalid' : ''), 'placeholder' => 'Municipio']) }}
+            {!! $errors->first('municipio', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('localidad') }}
+            {{ Form::text('localidad', $project->localidad, ['class' => 'form-control' . ($errors->has('localidad') ? ' is-invalid' : ''), 'placeholder' => 'Localidad']) }}
+            {!! $errors->first('localidad', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('colonia') }}
+            {{ Form::text('colonia', $project->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : ''), 'placeholder' => 'Colonia']) }}
+            {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('ped') }}
@@ -153,16 +131,19 @@
             {{ Form::text('indicadores', $project->indicadores, ['class' => 'form-control' . ($errors->has('indicadores') ? ' is-invalid' : ''), 'placeholder' => 'Indicadores']) }}
             {!! $errors->first('indicadores', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-                                <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Atrás</button>
-                                    <button type="submit" class="btn btn-submit">Guardar Información</button>
-                                </div>
-                            </fieldset>
-                            <!--fin -->
-                    	
-                    	</form>
-                    </div>
-                </div>
-                    
-            </div>
+        <div class="form-group">
+            {{ Form::label('tipo') }}
+            {{ Form::text('tipo', $project->tipo, ['class' => 'form-control' . ($errors->has('tipo') ? ' is-invalid' : ''), 'placeholder' => 'Tipo']) }}
+            {!! $errors->first('tipo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('id_usr') }}
+            {{ Form::text('id_usr', $project->id_usr, ['class' => 'form-control' . ($errors->has('id_usr') ? ' is-invalid' : ''), 'placeholder' => 'Id Usr']) }}
+            {!! $errors->first('id_usr', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+
+    </div>
+    <div class="box-footer mt20">
+        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+    </div>
+</div>

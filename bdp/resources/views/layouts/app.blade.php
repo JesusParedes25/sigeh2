@@ -35,7 +35,7 @@
 </head>
 <body style="font-family: Montserrat">
     <div>
-        <img src="img/head.png" width="100%">
+        <img src="{{ url('/img/head.png') }}" width="100%">
     </div>  
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">

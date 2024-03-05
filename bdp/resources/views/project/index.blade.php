@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Project') }}
+                                {{ __('Projectos Registrados') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('projects.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                <a href="{{ route('projects.create') }}" class="btn btn-secondary btn-sm float-right"  data-placement="left">
+                                  {{ __('Crear nuevo proyecto') }}
                                 </a>
                               </div>
                         </div>
@@ -37,26 +37,34 @@
                                         <th>No</th>
                                         
 										<th>Tipo Proyecto</th>
-										<th>Quien Resgistra</th>
+										<th>Sector</th>
+										<!--<th>Quien Resgistra</th>
 										<th>Unidad Responsable</th>
 										<th>Uni Presupuestal</th>
 										<th>Ramo Presupuestal</th>
 										<th>Fecha Registro</th>
-										<th>Georreferencia</th>
+										<th>Georreferencia</th>-->
+										<th>Nombre Proyecto</th>
 										<th>Descripcion</th>
-										<th>Situacion Act</th>
+										<!--<th>Situacion Act</th>
 										<th>Objetivos</th>
 										<th>Metas</th>
 										<th>Prog Presupuestario</th>
 										<th>Asignacion Obra</th>
 										<th>Modalidad</th>
 										<th>Beneficiarios</th>
-										<th>Territorio</th>
 										<th>Alin Normativa</th>
+										<th>Region</th>
+										<th>Municipio</th>
+										<th>Localidad</th>
+										<th>Colonia</th>
 										<th>Ped</th>
 										<th>Ods</th>
 										<th>Sectorial</th>
 										<th>Indicadores</th>
+										<th>Tipo</th>
+										<th>Id Usr</th>-->
+										<th>Porcentaje</th>
 
                                         <th></th>
                                     </tr>
@@ -67,34 +75,43 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $project->tipo_proyecto }}</td>
-											<td>{{ $project->quien_resgistra }}</td>
+											<td>{{ $project->sector }}</td>
+											<!--<td>{{ $project->quien_resgistra }}</td>
 											<td>{{ $project->unidad_responsable }}</td>
 											<td>{{ $project->uni_presupuestal }}</td>
 											<td>{{ $project->ramo_presupuestal }}</td>
 											<td>{{ $project->fecha_registro }}</td>
-											<td>{{ $project->georreferencia }}</td>
+											<td>{{ $project->georreferencia }}</td>-->
+											<td>{{ $project->nombre_proyecto }}</td>
 											<td>{{ $project->descripcion }}</td>
-											<td>{{ $project->situacion_act }}</td>
+											<!--<td>{{ $project->situacion_act }}</td>
 											<td>{{ $project->objetivos }}</td>
 											<td>{{ $project->metas }}</td>
 											<td>{{ $project->prog_presupuestario }}</td>
 											<td>{{ $project->asignacion_obra }}</td>
 											<td>{{ $project->modalidad }}</td>
 											<td>{{ $project->beneficiarios }}</td>
-											<td>{{ $project->territorio }}</td>
 											<td>{{ $project->alin_normativa }}</td>
+											<td>{{ $project->region }}</td>
+											<td>{{ $project->municipio }}</td>
+											<td>{{ $project->localidad }}</td>
+											<td>{{ $project->colonia }}</td>
 											<td>{{ $project->ped }}</td>
 											<td>{{ $project->ods }}</td>
 											<td>{{ $project->sectorial }}</td>
 											<td>{{ $project->indicadores }}</td>
+											<td>{{ $project->tipo }}</td>
+											<td>{{ $project->id_usr }}</td>-->
+											<td>{{ '80%' }}</td>
 
                                             <td>
                                                 <form action="{{ route('projects.destroy',$project->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('projects.show',$project->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('projects.edit',$project->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-secondary " href="{{ route('projects.show',$project->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                    <a class="btn btn-sm btn-secondary" href="{{ route('projects.edit',$project->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+													<a class="btn btn-sm btn-secondary " href="{{ route('projects.show',$project->id) }}"><i class="fa fa-fw fa-file"></i> {{ __('Documentos') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
