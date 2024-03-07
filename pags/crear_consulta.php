@@ -52,10 +52,10 @@
                                             <div class="col-lg-12" align="left">
                                             <h2><b>Selecciona el tema o temas que deseas consultar: </b></h2> 
                                                 <div class="col-lg-4" align="left">
-                                                 <!--   <div class="checkbox">
+                                                    <div class="checkbox">
                                                         <label><input type="checkbox" name="ws_comercio" id="ws_comercio" value="Comercio">Comercio</label>
                                                     </div>
-                                                    <div class="checkbox">
+                                              <!--      <div class="checkbox">
                                                         <label><input type="checkbox" name="ws_comunicaciones_transporte" id="ws_comunicaciones_transporte" value="Comunicación y Transporte">Comunicaciones y Transporte</label>
                                                     </div>
                                                     <div class="checkbox">

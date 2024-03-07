@@ -108,7 +108,7 @@
                                                 <form action="{{ route('projects.destroy',$project->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-secondary " href="{{ route('projects.show',$project->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
                                                     <a class="btn btn-sm btn-secondary" href="{{ route('projects.edit',$project->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-													<a class="btn btn-sm btn-secondary " href="{{ route('projects.show',$project->id) }}"><i class="fa fa-fw fa-file"></i> {{ __('Documentos') }}</a>
+													<a class="btn btn-sm btn-secondary " href="{{ 'evidencias/evidencias.php' }}"><i class="fa fa-fw fa-file"></i> {{ __('Documentos') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>

@@ -52,7 +52,7 @@ include 'header.php';
                                             <div class="col-lg-12" align="left">
                                             <h4><b>Selecciona el tema o temas que deseas consultar: </b></h4> 
                                                 <div class="col-lg-4" align="left">
-                                                 <!--   <div class="checkbox">
+                                                    <div class="checkbox">
                                                         <label><input type="checkbox" name="ws_comercio" id="ws_comercio" value="Comercio">Comercio</label>
                                                     </div>
                                                     <div class="checkbox">
@@ -60,7 +60,7 @@ include 'header.php';
                                                     </div>
                                                     <div class="checkbox">
                                                         <label><input type="checkbox" name="ws_cultura_deporte" id="ws_cultura_deporte" value="Cultura y Deporte">Cultura y Deporte</label>
-                                                    </div> -->
+                                                    </div> 
 <div class="checkbox">
                                                         <label><input type="checkbox" name="ws_economico" id="ws_economico" value="Economico">Economía</label>
                                                     </div>
@@ -103,13 +103,13 @@ include 'header.php';
                                             <div class="col-lg-12" align="left">
                                                 <div class="col-lg-4" align="left">
                                                             
-                                                            <!--
+                                                            
                                                             <div class="checkbox">
                                                                 <label><input type="checkbox" value="">Turismo</label>
                                                             </div>
                                                             <div class="checkbox disabled">
                                                                 <label><input type="checkbox" value="">Vivienda</label>
-                                                            </div> -->
+                                                            </div> 
                                                         </div>
                                                     </div>
                                             </div>

@@ -1,31 +1,11 @@
-<!doctype html>
-<html> 
-<head>
-<title>Cargar Ficheros</title>
+@extends('layouts.app')
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+@section('template_title')
+    Project
+@endsection
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
-<style>
-.navbar {
-	position: relative;
-	min-height: 50px;
-	margin-bottom: 5px;
-}
-</style>
-</head>
-<body>
-  
-
- <?php
- error_reporting(0);
+<?php
+ //error_reporting(0);
           /*    include('../conexion.php');
               $id_evidencia = $_GET['id'];
               echo $id_evidencia;
@@ -41,7 +21,7 @@
     <h4><?php echo $row['dependencia'];?></h4>
     <hr style="margin-top:5px;margin-bottom: 5px;">
     <div class="content"> </div>
-    <div class="panel panel-primary" style="border-color: #b1935e;">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Cargar archivos para <?php echo $row['indicador'];?></h3>
       </div>
@@ -65,7 +45,7 @@
     </div>
   
 <!--tabla-->
-    <div class="panel panel-primary" style="border-color: #b1935e;">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Descargas Disponibles</h3>
       </div>
@@ -112,5 +92,3 @@ for ($i=2; $i<count($archivos); $i++)
   </div>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-</body>
-</html>

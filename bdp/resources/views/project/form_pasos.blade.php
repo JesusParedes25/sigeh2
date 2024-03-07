@@ -1,6 +1,6 @@
 
 <div class="top-content">
-            <div class="container">
+            <div class="container"> 
                 
                 <div class="row">
                     <div class="form-box">
@@ -55,10 +55,10 @@
                                     </div>
                                 </div><br>
                                 <div class="form-group">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                     {{ Form::label('UNIDAD RESPONSABLE:') }}                               
                                     </div>
-                                    <div class="col-md-4">                                
+                                    <div class="col-md-3">                                
                                     {{ Form::text('unidad_responsable', $project->unidad_responsable, ['class' => 'form-control' . ($errors->has('unidad_responsable') ? ' is-invalid' : ''), 'placeholder' => 'Unidad Responsable']) }}
                                     {!! $errors->first('unidad_responsable', '<div class="invalid-feedback">:message</div>') !!}
                                     </div>
@@ -70,19 +70,19 @@
                                     {!! $errors->first('uni_presupuestal', '<div class="invalid-feedback">:message</div>') !!}
                                     </div>          
             
-                                </div><br>
+                                </div>
                                 <div class="form-group">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                     {{ Form::label('RAMO PRESUPUESTAL:') }}                               
                                     </div>
-                                    <div class="col-md-4">                                
+                                    <div class="col-md-3">                                
                                     {{ Form::text('ramo_presupuestal', $project->ramo_presupuestal, ['class' => 'form-control' . ($errors->has('ramo_presupuestal') ? ' is-invalid' : ''), 'placeholder' => 'Ramo Presupuestal']) }}
                                     {!! $errors->first('ramo_presupuestal', '<div class="invalid-feedback">:message</div>') !!}
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                     {{ Form::label('FECHA DE REGISTRO:') }}                                
                                     </div>
-                                    <div class="col-md-4">                                
+                                    <div class="col-md-3">                                
                                     {{ Form::text('fecha_registro', $project->fecha_registro, ['class' => 'form-control' . ($errors->has('fecha_registro') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Registro']) }}
                                     {!! $errors->first('fecha_registro', '<div class="invalid-feedback">:message</div>') !!}
                                     </div>         

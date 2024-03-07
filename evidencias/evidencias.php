@@ -25,11 +25,11 @@
   
 
  <?php
- error_reporting(0);
-          /*    include('../conexion.php');
-              $id_evidencia = $_GET['id'];
-              echo $id_evidencia;
-              $sql = "SELECT id_tactico, indicador, dependencia, usuario
+ //error_reporting(0);
+              //include('../conexion.php');
+              //$id_evidencia = $_GET['id'];
+              //echo $id_evidencia;
+              /*$sql = "SELECT id_tactico, indicador, dependencia, usuario
                   FROM tacticos
                   WHERE id_tactico = $id_evidencia";
               $result = $link->query($sql);
@@ -41,7 +41,7 @@
     <h4><?php echo $row['dependencia'];?></h4>
     <hr style="margin-top:5px;margin-bottom: 5px;">
     <div class="content"> </div>
-    <div class="panel panel-primary" style="border-color: #b1935e;">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Cargar archivos para <?php echo $row['indicador'];?></h3>
       </div>
@@ -65,7 +65,7 @@
     </div>
   
 <!--tabla-->
-    <div class="panel panel-primary" style="border-color: #b1935e;">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Descargas Disponibles</h3>
       </div>
