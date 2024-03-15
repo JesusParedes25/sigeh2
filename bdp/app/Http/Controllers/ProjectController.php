@@ -16,9 +16,12 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::paginate();
+        // Obtén el usuario autenticado
+        $user = $request->user()->id;
+
+        $projects = Project::where('user_id','=',$user) -> paginate();
 
         return view('project.index', compact('projects'))
             ->with('i', (request()->input('page', 1) - 1) * $projects->perPage());

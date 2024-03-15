@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("user_id");
+            $table->foreign("user_id")->references("id")->on("users");
             $table->string('tipo_proyecto');
             $table->string('sector');
             $table->string('quien_resgistra');
@@ -42,7 +44,7 @@ return new class extends Migration
             $table->string('sectorial');
             $table->string('indicadores');
             $table->string('tipo');
-            $table->string('id_usr');
+            
             $table->timestamps();
         });
     }

@@ -73,7 +73,8 @@ class Project extends Model
 		'sectorial' => 'required',
 		'indicadores' => 'required',
 		'tipo' => 'required',
-		'id_usr' => 'required',
+		'user_id' => 'required',
+		
     ];
 
     protected $perPage = 20;
@@ -83,7 +84,7 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['tipo_proyecto','sector','quien_resgistra','unidad_responsable','uni_presupuestal','ramo_presupuestal','fecha_registro','georreferencia','nombre_proyecto','descripcion','situacion_act','objetivos','metas','prog_presupuestario','asignacion_obra','modalidad','beneficiarios','alin_normativa','region','municipio','localidad','colonia','ped','ods','sectorial','indicadores','tipo','id_usr'];
+    protected $fillable = ['user_id','tipo_proyecto','sector','quien_resgistra','unidad_responsable','uni_presupuestal','ramo_presupuestal','fecha_registro','georreferencia','nombre_proyecto','descripcion','situacion_act','objetivos','metas','prog_presupuestario','asignacion_obra','modalidad','beneficiarios','alin_normativa','region','municipio','localidad','colonia','ped','ods','sectorial','indicadores','tipo'];
 
 
 

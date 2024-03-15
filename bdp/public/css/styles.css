@@ -1,0 +1,18 @@
+.progress-bar {
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.progress {
+    height: 10px;
+    background-color: #007bff;
+    width: 0%;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step:first-child {
+    display: block;
+}

@@ -11,13 +11,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/jquery-1.11.1.min.js') }}" defer></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/jquery.backstretch.min.js') }}" defer></script>
-    <script src="{{ asset('js/retina-1.1.0.min.js') }}" defer></script>
-    <script src="{{ asset('js/scripts.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}" ></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('js/jquery.backstretch.min.js') }}" ></script>
+    <script src="{{ asset('js/retina-1.1.0.min.js') }}" ></script>
+    <script src="{{ asset('js/scripts.js') }}" ></script>
 
-    
+       
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat">
@@ -27,8 +27,12 @@
     <link href="{{ asset('css/style_tab.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/form_elements.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form_elements.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style_form.css') }}" rel="stylesheet">
+    <!--<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">-->
+
+
 
     
         

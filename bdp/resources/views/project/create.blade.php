@@ -1,30 +1,27 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Create') }} Project 
+    {{ __('Create') }} Projects 
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="top-content">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="form-box">
+                        <form method="POST" action="{{ route('projects.store') }}"  role="form" enctype="multipart/form-data" class="f1">
+                    	
 
-                @includeif('partials.errors')
+                        @csrf
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Projectos</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('projects.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('project.form')
-
-                        </form>
+                        @include('project.form')
+                    	
+                    	</form>
                     </div>
                 </div>
+                    
             </div>
         </div>
-    </section>
-@endsection
+    
+@endsection 
